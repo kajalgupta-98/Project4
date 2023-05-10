@@ -16,7 +16,7 @@ function Home() {
         <div>
           <Sidebar />
         </div>
-        <div>
+        <div className={style.boardContainer} >
           <Board />
         </div>
       </div>

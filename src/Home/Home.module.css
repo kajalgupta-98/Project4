@@ -1,7 +1,7 @@
 
 .HomeContainer{
     border: 1px solid red;
-    width: 100%;
+    min-width: 100%;
     height: 100vh;
 }
 
@@ -22,6 +22,14 @@
 
 }
 .container >div:nth-child(2){
-    width: 80%;
     border: 1px solid red;
+    width: 80%;
+
 }
+
+/* 
+.boardContainer{
+    max-height: 98%;
+    border: 1px solid black;
+
+} */
