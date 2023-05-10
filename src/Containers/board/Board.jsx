@@ -1,10 +1,11 @@
 
 import React from 'react'
+import Card from '../../Components/card/Card'
 
 function Board() {
   return (
     <div>
-      this board....
+      <Card/>
     </div>
   )
 }

@@ -1,0 +1,11 @@
+.cardBox{
+    border-radius: 14px;
+    width: 15rem;
+    height: auto;
+    background-color: #f1f2f4;
+    margin: 1rem;
+}
+.innerBox{
+    display: flex;
+    justify-content: space-between;
+}
