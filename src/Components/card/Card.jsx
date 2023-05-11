@@ -1,22 +1,29 @@
-import React from 'react'
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import style from './Card.module.css'
-import Button from '../button/Button';
-import Task from '../task/Task';
-
+import React from "react";
+import style from "./Card.module.css";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import Editable from "../editable/Editable";
+import Task from "../task/Task";
 function Card() {
   return (
-    <div className={style.cardBox}>
-      <div className={style.innerBox}>
-        <h1>
-           Todo
-        </h1>
-            <MoreHorizIcon/>
+    <div className={style.card}>
+      <div className={style.cardHeading}>
+        <h1>Todo</h1>
+        <span>
+          <MoreHorizIcon />
+        </span>
       </div>
-      <Task task={'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}/>
-      <Button/>
+      <div>
+        <Task />
+        
+
+      </div>
+
+      <div className={style.tasksDiv}>all the card</div>
+      <div className={style.editableDiv}>
+        <Editable />
+      </div>
     </div>
-  )
+  );
 }
 
-export default Card
+export default Card;

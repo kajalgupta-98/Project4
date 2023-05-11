@@ -1,27 +1,21 @@
-import React, { useState } from "react";
-import Sidebar from "../Containers/sidebar/Sidebar";
-import Navbar from "../Containers/navbar/Navbar";
+import Navbar from "../Containers/Navbar/Navigation";
 import Board from "../Containers/board/Board";
-import style from './Home.module.css'
-
-
-
-function Home() {
+import Sidebar from "../Containers/sidebar/Sidebar";
+import style from "../Home/Home.module.css";
+const Home = () => {
   return (
     <div className={style.HomeContainer}>
       <div className={style.Navbar}>
         <Navbar />
       </div>
       <div className={style.container}>
-        <div>
-          <Sidebar />
-        </div>
-        <div>
+        <div><Sidebar/></div>
+        <div className={style.boardContainer}>
           <Board />
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default Home;

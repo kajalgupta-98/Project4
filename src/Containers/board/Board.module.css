@@ -1,0 +1,15 @@
+.board_outer{
+   width: 100%;
+   overflow-x: auto;
+  flex: 1;
+  min-height: 100%;
+}
+
+
+.board{
+    min-width:fit-content;
+    display: flex;
+    gap:30px;
+   
+    
+}
