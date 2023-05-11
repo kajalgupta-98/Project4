@@ -1,0 +1,19 @@
+.card{
+   min-width: 17rem;
+   max-height: 43rem;
+   overflow-x: auto;
+   border: 1px solid red;
+   margin-top: 1rem;
+
+}
+
+.cardHeading{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 5px;
+}
+
+.editableDiv{
+    border: 1px solid red;
+}   
