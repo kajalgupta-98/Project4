@@ -18,6 +18,8 @@ function Home() {
         </div>
         <div className={style.boardContainer} >
           <Board />
+        
+
         </div>
       </div>
     </div>

@@ -14,6 +14,7 @@
     border: 1px solid red;
     display: flex;
     height: 92.9%;
+
    
 }
 .container >div:nth-child(1){
@@ -24,12 +25,9 @@
 .container >div:nth-child(2){
     border: 1px solid red;
     width: 80%;
+    padding-left: 1rem;
+
 
 }
 
-/* 
-.boardContainer{
-    max-height: 98%;
-    border: 1px solid black;
 
-} */

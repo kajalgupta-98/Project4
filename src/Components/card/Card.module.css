@@ -3,6 +3,8 @@
    max-height: 43rem;
    overflow-x: auto;
    border: 1px solid red;
+   margin-top: 1rem;
+
 }
 
 .cardHeading{

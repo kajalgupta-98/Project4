@@ -3,9 +3,6 @@
    overflow-x: auto;
   flex: 1;
   min-height: 100%;
-
- 
-
 }
 
 
@@ -13,5 +10,6 @@
     min-width:fit-content;
     display: flex;
     gap:30px;
+   
     
 }
