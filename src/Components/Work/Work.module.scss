@@ -1,0 +1,23 @@
+.root {
+  min-width: 80%;
+  height: 100%;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  align-items: flex-start;
+  overflow-x: scroll;
+
+  .box {
+    min-height: 6rem;
+    background-color: white;
+    border-radius: 0.5rem;
+
+    .title {
+      display: flex;
+      justify-content: space-between;
+      padding: 0rem 1rem;
+      align-items: center;
+    }
+  }
+}

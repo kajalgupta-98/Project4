@@ -1,11 +1,11 @@
 import { Typography } from "@mui/material";
-import { RxChevronRight, RxChevronLeft } from "react-icons/rx";
-const SideTopheading = ({show ,setShow}) => {
+import { RxChevronLeft } from "react-icons/rx";
+const SideTopheading = ({ setShow }) => {
   return (
     <Typography
       component="div"
       sx={{
-        flex: 1/2,
+        flex: 1 / 2,
         position: "relative",
         display: "flex",
         alignItems: "center",
@@ -16,7 +16,7 @@ const SideTopheading = ({show ,setShow}) => {
       <div style={{ flex: 1 / 2 }}>
         <img
           src="https://knowbility.org/media/pages/blog/the-myth-of-javascript-accessibility/fc4717b7ec-1662134552/javascriptlogosmall.png"
-          alt=""
+          alt="logo"
           style={{ objectFit: "cover", height: "4rem", width: "4rem" }}
         />
       </div>
@@ -32,28 +32,17 @@ const SideTopheading = ({show ,setShow}) => {
           left: "95%",
         }}
         onClick={() => {
-          setShow(!show);
+          setShow(false);
         }}
       >
-        {show ? (
-          <RxChevronLeft
-            size={28}
-            style={{
-              borderRadius: "50%",
-              border: "1px solid white",
-              backgroundColor: "gray",
-            }}
-          />
-        ) : (
-          <RxChevronRight
-            size={28}
-            style={{
-              borderRadius: "50%",
-              border: "1px solid white",
-              backgroundColor: "gray",
-            }}
-          />
-        )}
+        <RxChevronLeft
+          size={28}
+          style={{
+            borderRadius: "50%",
+            border: "1px solid white",
+            backgroundColor: "gray",
+          }}
+        />
       </span>
     </Typography>
   );
