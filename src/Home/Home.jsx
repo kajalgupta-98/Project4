@@ -1,18 +1,19 @@
-import { Box} from "@mui/material";
-import milky from "../utils/clone.jpg";
-import Style from "../Home/Home.module.scss";
-import DialogBox from "../Components/Dialog/DialogBox";
+import Navbar from "../Containers/Navbar/Navigation";
+import Board from "../Containers/board/Board";
+import style from "../Home/Home.module.css";
 const Home = () => {
   return (
-    <Box
-      component="div"
-      className={Style.root}
-      sx={{
-        backgroundImage: `url(${milky})`,
-      }}
-    >
-      <DialogBox />
-    </Box>
+    <div className={style.HomeContainer}>
+      <div className={style.Navbar}>
+        <Navbar />
+      </div>
+      <div className={style.container}>
+        <div></div>
+        <div className={style.boardContainer}>
+          <Board />
+        </div>
+      </div>
+    </div>
   );
 };
 
