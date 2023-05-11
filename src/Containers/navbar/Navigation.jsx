@@ -16,7 +16,7 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { BsCircleHalf, BsTrello } from "react-icons/bs";
 import { CgMenuGridR } from "react-icons/cg";
-import BasicMenu from "../../Components/selector/Selector";
+import BasicMenu from "../../Components/menuselector/MenuSelector";
 import { Button } from "@mui/material";
 
 const Search = styled("div")(({ theme }) => ({

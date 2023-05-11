@@ -1,6 +1,6 @@
 import { Box, Button } from "@mui/material";
 import React from "react";
-
+import { CgTrello } from "react-icons/cg";
 const SideBarBottom = () => {
   return (
     <Box
@@ -13,7 +13,7 @@ const SideBarBottom = () => {
       }}
     >
       <Button variant="contained" sx={{ textTransform: "none", width: "80%" }}>
-        Try Premium free
+        <CgTrello /> &nbsp; Try Premium free
       </Button>
     </Box>
   );

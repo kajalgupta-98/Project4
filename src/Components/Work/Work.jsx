@@ -1,10 +1,10 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
-// import DialogBox from "../Dialog/DialogBox";
 import Style from "../Work/Work.module.scss";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import IconButton from "@mui/material/IconButton";
 import TextField from "@mui/material/TextField";
+import Card from "../card/Card";
 const Work = () => {
   const [array, setArray] = React.useState([
     { id: 1, task: "To do" },
@@ -30,7 +30,18 @@ const Work = () => {
                   <MoreHorizIcon />
                 </IconButton>
               </Typography>
-              <Box component="div"></Box>
+              <Box
+                component="div"
+                className={Style.title}
+                sx={{
+                  boxSizing: "border-box",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                  alignItems: "flex-start !important",
+                }}
+              >
+                <Card />
+              </Box>
             </Box>
           </Box>
         );
@@ -56,10 +67,17 @@ const Work = () => {
           variant="filled"
           value={task.task}
           sx={{
-            backgroundColor: "#f1f8e9",
+            backgroundColor: "whitesmoke",
+            opacity: "0.4",
             height: "3rem",
             width: "90%",
             borderBottom: 0,
+          }}
+          inputProps={{
+            style: {
+              color: "black",
+              fontWeight: "bold",
+            },
           }}
         />
         {task.task && (
