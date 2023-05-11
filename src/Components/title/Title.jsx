@@ -10,7 +10,7 @@ function Title() {
     <div className={style.title_div}>
       <VideoLabelIcon fontSize='small'/>
       <div className={style.title_text}>
-      <input type="text" value={title} onClick={()=>setToggleInput(true)} onChange={(e)=>setTitle(e.target.value)} className={style.title_box}/>
+      <textarea type="text" value={title} onClick={()=>setToggleInput(true)} onChange={(e)=>setTitle(e.target.value)} className={style.title_box}/>
     <span>in list Todo</span>
       </div>
     </div>
