@@ -9,7 +9,8 @@
 .board{
     min-width:fit-content;
     display: flex;
-    gap:30px;
+    gap:1rem;
+    max-height: fit-content;
    
     
 }
