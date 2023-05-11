@@ -13,7 +13,7 @@ function Card() {
         </h1>
             <MoreHorizIcon/>
       </div>
-      <Task task={'aaaaaaaaaaaaa'}/>
+      <Task task={'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'}/>
       <Button/>
     </div>
   )
