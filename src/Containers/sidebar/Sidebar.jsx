@@ -22,7 +22,7 @@ function Sidebar() {
     
     <>
     {collapsed ? 
-    <button id="expandBtn" onClick={handleCollapse}>
+    <button id={style.expandBtn} onClick={handleCollapse}>
           <NavigateBeforeIcon  sx={{ fontSize: "1.5rem" }}/>
     </button>
     :
