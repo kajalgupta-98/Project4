@@ -39,9 +39,8 @@
     margin-top: 0.5rem;
     cursor: pointer;
 }
-.sideBarOptions :hover{
-    
-}
+
+
 .optionInner{
     display: flex;
     gap: 1rem;
