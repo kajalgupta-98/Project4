@@ -4,6 +4,7 @@ import { useState } from "react";
 import SideTopheading from "../../Components/sidbar/SideTopheading";
 import SidebarTabs from "../../Components/sidbar/SidebarTabs";
 import SideBarBottom from "../../Components/sidbar/SideBarBottom";
+import Style from "../sidebar/Sidebar.module.scss";
 function Sidebar() {
   const [show, setShow] = useState(true);
   const spring = useSpring({
@@ -19,16 +20,7 @@ function Sidebar() {
         ...spring,
       }}
     >
-      <Box
-        component="div"
-        sx={{
-          height: "100%",
-          padding: "1rem 0rem 0rem 0.5rem",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-        }}
-      >
+      <Box component="div" className={Style.root}>
         <SideTopheading show={show} setShow={setShow} />
         <SidebarTabs />
         <SideBarBottom />
