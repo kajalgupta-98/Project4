@@ -1,0 +1,26 @@
+.mainBtnDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0.5rem;
+}
+
+.addCardBtn{
+    border: 1px solid gray;
+    border-radius: 4px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: gray;
+    width: 80%;
+    padding: 3px;
+}
+.addTaskIcon{
+    background-color: gray;
+    border-radius: 4px;
+    font-size: 20px;
+    padding: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
