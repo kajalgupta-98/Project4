@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 import style from "./Sidebar.module.css"
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -12,15 +12,29 @@ import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 
 
 function Sidebar() {
+  const [collapsed, setCollapsed] = React.useState(false);
+
+  const handleCollapse = () => {
+    setCollapsed(!collapsed);
+  };
+
   return (
-    <div className={style.sideBarContainer}>
+    
+    <>
+    {collapsed ? 
+    <button id="expandBtn" onClick={handleCollapse}>
+          <NavigateBeforeIcon  sx={{ fontSize: "1.5rem" }}/>
+    </button>
+    :
+    <div className={` ${style.sideBarContainer} ${collapsed? style.collapsed : null}`}>
       <div className={style.header}>
         <button className={style.logoBtn}>T</button>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h4> Trello Workspace</h4>
           <p>Free</p>
         </div>
-        <NavigateBeforeIcon sx={{ fontSize: "1.2rem" }}/>
+        <NavigateBeforeIcon id="collapseBtn" onClick={handleCollapse} sx={{ fontSize: "1.2rem" }}/>
+        
       </div>
 
       <hr style={{ width: "100%", height: "0.5px" }} />
@@ -73,9 +87,13 @@ function Sidebar() {
           <AddOutlinedIcon sx={{ fontSize: "1.2rem" }} />
         </div>
       </div>
-
+      
+   
 
     </div>
+}
+   
+  </>
   )
 }
 
