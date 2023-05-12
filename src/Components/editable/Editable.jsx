@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import style from "./Editable.module.css";
 import AddIcon from "@mui/icons-material/Add";
 import AddCardIcon from "@mui/icons-material/AddCard";
+import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
+import CloseIcon from '@mui/icons-material/Close';
 
 function Editable() {
-  const [showBtn, setShowBtn] = useState(false);
+  const [showBtn, setShowBtn] = useState(true);
   const handleClick = () => {
         setShowBtn(!showBtn)
   };
@@ -18,14 +20,24 @@ function Editable() {
     <AddIcon />
     Add a Card
   </p>
+  <span className={style.moreIcons}>
   <AddCardIcon />
+
+  </span>
   </div>:
-  <div>
-    <input type="text" />
+  <div className={style.btnDiv}>
+    <input type="text" placeholder="Enter a title for this card...." />
     <div className={style.inputBtn}>
-        <span>Add Cart</span>
-        <span onClick={handleClose}>x</span>
+      <div className={style.btnAdd}>
+      <button>Add Cart</button>
+        <span onClick={handleClose}>
+        <CloseIcon className={style.closeBtn} />
+        </span>
+      </div>
+    <MoreHorizIcon/>
+
     </div>
+
     
   </div>
 

@@ -45,21 +45,13 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default function DialogBox() {
-  const [open, setOpen] = React.useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+export default function DialogBox({ setOpen, open }) {
   const handleClose = () => {
-    setOpen(false);
+    setOpen(!open);
   };
 
   return (
     <div>
-      <Button variant="contained" onClick={handleClickOpen}>
-        Open dialog
-      </Button>
       <BootstrapDialog
         onClose={handleClose}
         aria-labelledby="customized-dialog-title"
