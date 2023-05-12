@@ -8,6 +8,7 @@ import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Title from '../title/Title'
+import Description from "../description/Description";
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -77,6 +78,7 @@ export default function DialogBox({ handleClose, open }) {
         </IconButton>
         <DialogContent>
           <Title/>
+          <Description/>
         </DialogContent>
       </BootstrapDialog>
     </div>
