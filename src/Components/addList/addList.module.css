@@ -44,3 +44,7 @@
     color: white;
     cursor: pointer;
 }
+.addList button:hover{
+    background-color: #0e53b3;
+
+}

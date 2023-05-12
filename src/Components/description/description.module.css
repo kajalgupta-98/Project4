@@ -81,6 +81,10 @@
     color: white;
     cursor: pointer;
   }
+  .saveBtn:hover{
+    background-color: #0e53b3;
+
+  }
   .cancelBtn {
     height: 2rem;
     width: 4rem;
