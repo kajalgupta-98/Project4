@@ -1,0 +1,94 @@
+
+.mainContainer{
+ 
+    margin-top: 20px; 
+    padding: 0 1rem;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* border: 1px solid black; */
+   
+}
+
+.activityDiv{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.editableDiv{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+
+}
+.showBtn{
+    padding: 0.5rem 1rem;
+    border: none;
+    color: grey;
+}
+
+.userProfile{
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: green;
+    color: white;
+    font-size: 0.8rem;
+    margin-left: -0.5rem;
+    margin-right: 0.5rem;
+    display: flex;
+    position: fixed;
+    top: 9.7rem;
+}
+
+.editableDiv {
+   /* cursor: pointer;
+    width: 94%;
+    background-color: rgb(251, 248, 248);
+    height: 2rem;
+  display: flex;
+  margin-top: 0.5rem;
+  align-items: center;
+  padding-left: 1rem; */
+  margin-top: 0.5rem;
+}
+.editedArea{
+  
+    width: 100%;
+    padding: 0.5rem 0;
+    padding-left: 1rem; 
+    margin-left: 2.5rem;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+   
+    
+}
+.editableDiv span:hover{
+    background-color: rgb(235, 235, 238);
+}
+
+.saveBtnDiv{
+    display: flex;
+    margin-left: 2.5rem;
+    margin-top: 0.5rem;
+    align-items: center;
+    gap: 0.7rem;
+}
+.saveBtnDiv button{
+    padding: 0.5rem 1.3rem;
+    background-color:#0c66E4;
+    border: none;
+    border-radius: 5px;
+
+}
+
+.saveBtnDiv input{
+  width: 1.2rem;
+  height: 1.4rem;
+}
+.tetContainDiv{
+    width: 100%;
+}
+

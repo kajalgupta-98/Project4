@@ -9,20 +9,24 @@ function Task(props) {
 
 
     const handleClick = ()=>{
-        setOpen(!open);
+        setOpen(true);
     }
     
   return (
-    <div className={style.task_box} onClick={handleClick} onMouseOver={()=>setVisibility(true)} onMouseOut={()=>setVisibility(false)}>
+    <>
+     <div className={style.task_box} onClick={handleClick} onMouseOver={()=>setVisibility(true)} onMouseOut={()=>setVisibility(false)}>
       <span className={style.task} >{props.task||"hello"}</span>
 
       <div className={visibility?style.pencil:style.hiddenPencil} >
       <ModeEditOutlinedIcon/>
       </div>
-      {
-      open&&<DialogBox setOpen={setOpen} open={open} />
-    }
+      
+    
     </div>
+    <DialogBox setOpen={setOpen} open={open} />
+
+    </>
+   
     
   )
 }
