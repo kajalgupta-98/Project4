@@ -3,65 +3,60 @@ import style from "./Editable.module.css";
 import AddIcon from "@mui/icons-material/Add";
 import AddCardIcon from "@mui/icons-material/AddCard";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
-import CloseIcon from '@mui/icons-material/Close';
+import CloseIcon from "@mui/icons-material/Close";
 
-function Editable() {
+function Editable({ taskTitle, setTasktitle, addTask }) {
   const [showBtn, setShowBtn] = useState(true);
   const handleClick = () => {
-        setShowBtn(!showBtn)
+    setShowBtn(!showBtn);
   };
 
-  const handleClose=()=>{
-    setShowBtn(!showBtn)
-  }
+  const handleClose = () => {
+    setShowBtn(!showBtn);
+  };
 
-  const dislay = showBtn?<div className={style.container}>
-  <p className={style.buttonDiv} onClick={handleClick}>
-    <AddIcon />
-    Add a Card
-  </p>
-  <span className={style.moreIcons}>
-  <AddCardIcon />
-
-  </span>
-  </div>:
-  <div className={style.btnDiv}>
-    <input type="text" placeholder="Enter a title for this card...." />
-    <div className={style.inputBtn}>
-      <div className={style.btnAdd}>
-      <button>Add Cart</button>
-        <span onClick={handleClose}>
-        <CloseIcon className={style.closeBtn} />
-        </span>
-      </div>
-    <MoreHorizIcon/>
-
+  const dislay = showBtn ? (
+    <div className={style.container}>
+      <p className={style.buttonDiv} onClick={handleClick}>
+        <AddIcon />
+        Add a Card
+      </p>
+      <span className={style.moreIcons}>
+        <AddCardIcon />
+      </span>
     </div>
+  ) : (
+    <div className={style.btnDiv}>
+      <input
+        type="text"
+        placeholder="Enter a title for this card...."
+        onChange={(e) => {
+          setTasktitle(e.target.value);
+        }}
+      />
+      <div className={style.inputBtn}>
+        <div className={style.btnAdd}>
+          <button onClick={addTask}>Add Task</button>
+          <span onClick={handleClose}>
+            <CloseIcon className={style.closeBtn} />
+          </span>
+        </div>
+        <MoreHorizIcon />
+      </div>
+    </div>
+  );
 
-    
-  </div>
-
-  return (
-    
-    <div>{dislay}</div>
-  )
-
- 
-
-  
-  
-  
-    
-  
+  return <div>{dislay}</div>;
 }
 
-
-{/* <div className={style.container}>
+{
+  /* <div className={style.container}>
 <p className={style.buttonDiv} onClick={handleClick}>
   <AddIcon />
   Add a Card
 </p>
 <AddCardIcon />
-</div> */}
+</div> */
+}
 
 export default Editable;

@@ -17,7 +17,7 @@ function Task(props) {
         onMouseOver={() => setVisibility(true)}
         onMouseOut={() => setVisibility(false)}
       >
-        <span className={style.task}>{props.task || "hello"}</span>
+        <span className={style.task}>{props.task}</span>
 
         <div className={visibility ? style.pencil : style.hiddenPencil}>
           <ModeEditOutlinedIcon />

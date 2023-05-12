@@ -1,115 +1,96 @@
-.container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 10px;
-    border-radius: 0.5rem;
-    /* border: 1px solid red; */
-    min-height: 2.2rem;
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  border-radius: 0.5rem;
+  /* border: 1px solid red; */
+  min-height: 2.2rem;
 }
-.buttonDiv{
-    display: flex;
-    align-items: center;
-    width: 90%;
-    min-height: 2.2rem;
-    margin: 0 0.2rem;
-    padding:  0 1rem;
-   
-
-}
- 
-
-.buttonDiv:hover{
-
-    border-radius: 0.4rem;
-    background-color: rgb(230, 226, 226);
-    cursor: pointer;
-    margin: 0 0.2rem;
-    padding:  0 1rem;
-
+.buttonDiv {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  min-height: 2.2rem;
+  margin: 0 0.2rem;
+  padding: 0 1rem;
 }
 
-.moreIcons{
-    /* border: 1px solid red; */
-    padding: 0 0.4rem;
-    padding-top: 0.2rem;
-    padding-bottom: 0.2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0.3rem;
+.buttonDiv:hover {
+  border-radius: 0.4rem;
+  background-color: rgb(230, 226, 226);
+  cursor: pointer;
+  margin: 0 0.2rem;
+  padding: 0 1rem;
 }
 
-.moreIcons:hover{
-  
-    background-color: rgb(230, 226, 226);
-    cursor: pointer;
-   
-
+.moreIcons {
+  /* border: 1px solid red; */
+  padding: 0 0.4rem;
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.3rem;
 }
 
-.inputBtn{
-    display: flex;
-    gap: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    
+.moreIcons:hover {
+  background-color: rgb(230, 226, 226);
+  cursor: pointer;
 }
 
-.btnDiv{
-    /* border: 1px solid red; */
-    /* padding:  0 1rem; */
-    width:100%;
-    
-
+.inputBtn {
+  display: flex;
+  gap: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
-.btnDiv input{
-    width:96%;
-    min-height: 3rem;
-    border-radius: 0.3rem;
-    padding-left: 0.3rem;
-    margin-left: 0.2rem;
-    
-  
-
-
+.btnDiv {
+  /* border: 1px solid red; */
+  /* padding:  0 1rem; */
+  width: 100%;
 }
 
-.btnAdd{
-    width: 57%;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 0.5rem;
-    align-items: center;
- 
-    
-   
+.btnDiv input {
+  width: 96%;
+  min-height: 3rem;
+  border-radius: 0.3rem;
+  padding-left: 0.3rem;
+  margin-left: 0.2rem;
 }
 
-.btnAdd>button{
-    padding: 0.5rem 2rem;
-    background-color:#0c66E4;
-    color: white;
-    border:none;
-    border-radius: 0.3rem;
-    cursor: pointer;
-}
-.btnAdd>button:hover{
-    background-color: #0e53b3;
+.btnAdd {
+  width: 57%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  align-items: center;
 }
 
-
-
-.closeBtn{
-    font-size:1.7rem !important;
-    /* border:2px solid red !important; */
-    margin-top:0.3rem!important;
-    color: grey !important;
-    cursor: pointer;
+.btnAdd > button {
+  /* display: flex;  */
+  padding: 0.5rem 1rem;
+  background-color: #0c66e4;
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
 }
-.closeBtn:hover{
-color: rgb(98, 98, 98) !important;
+.btnAdd > button:hover {
+  background-color: #0e53b3;
+}
+
+.closeBtn {
+  font-size: 1.7rem !important;
+  /* border:2px solid red !important; */
+  margin-top: 0.3rem !important;
+  color: grey !important;
+  cursor: pointer;
+}
+.closeBtn:hover {
+  color: rgb(98, 98, 98) !important;
 }
