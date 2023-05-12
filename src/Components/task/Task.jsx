@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import style from "./Task.module.css";
 import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
 import { useNavigate } from "react-router-dom";
-function Task(props) {
+
+
+function Task({task}) {
+  const {title}=task;
+  console.log(title)
+ 
+
   const [visibility, setVisibility] = useState(false);
   const navigate = useNavigate();
   const handleClick = () => {
@@ -17,7 +23,7 @@ function Task(props) {
         onMouseOver={() => setVisibility(true)}
         onMouseOut={() => setVisibility(false)}
       >
-        <span className={style.task}>{props.task || "hello"}</span>
+        <span className={style.task}>{title}</span>
 
         <div className={visibility ? style.pencil : style.hiddenPencil}>
           <ModeEditOutlinedIcon />
