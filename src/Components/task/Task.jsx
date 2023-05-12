@@ -12,6 +12,9 @@ function Task(props) {
         setOpen(true);
     }
     
+    const handleClose = () => {
+  setOpen(false);
+};
   return (
     <>
      <div className={style.task_box} onClick={handleClick} onMouseOver={()=>setVisibility(true)} onMouseOut={()=>setVisibility(false)}>

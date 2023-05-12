@@ -66,7 +66,7 @@ export default function DialogBox({ setOpen, open }) {
           sx: {
             position: "relative",
             height: "80vh",
-            width: "100vh",
+            width: "100vw",
           },
         }}
       >
@@ -74,6 +74,7 @@ export default function DialogBox({ setOpen, open }) {
           aria-label="close"
           sx={{
             position: "absolute",
+            width: '5%',
             top: "0.5rem",
             right: "1rem",
           }}

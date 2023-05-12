@@ -21,7 +21,7 @@ function Activity() {
         <button className={style.showBtn}>Show details</button>
       </div>
       <div className={style.editableDiv}>
-        <h3 className={style.userProfile}>Cb</h3>
+        <h3 className={style.userProfile}>PR</h3>
         {
           editer?
       <span className={style.editedArea} onClick={handleClick}>Write a comment...</span>:
