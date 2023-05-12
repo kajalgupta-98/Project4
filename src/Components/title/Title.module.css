@@ -3,6 +3,7 @@
     align-items: flex-start;
     gap: 1rem;
     margin: 3px 4px;
+    width: 80%;
 }
 .title_text{
     width: 90%;
@@ -20,7 +21,7 @@
     padding-left: 8px;
     padding-top: 8px;
     resize: none;
-    height: 28px;
+    height: 40px;
 }
 
 .title_box:focus{
