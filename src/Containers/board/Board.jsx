@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "../../Components/card/Card";
 import style from "./Board.module.css";
+import Editable from "../../Components/editable/Editable";
+
 function Board() {
  
   return (
@@ -12,6 +14,7 @@ function Board() {
         <Card />
         <Card />
         <Card />
+        <Editable />
       </div>
     </div>
   );
