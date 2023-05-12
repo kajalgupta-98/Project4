@@ -25,17 +25,19 @@
 }
 .container >div:nth-child(1){
     width: 20%;
-    /* border: 1px solid red; */
-
 }
-.container >div:nth-child(2){
-    border: 1px solid red;
+.boardContainer{
+    /* border: 1px solid red; */
     width: 80%;
     padding-left: 1rem;
     padding-right: 1rem;
 
 
 
+}
+
+.boardContainer.collapsed {
+    width: 97.6%;
 }
 
 
