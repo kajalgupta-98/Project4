@@ -4,15 +4,9 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import CloseIcon from "@mui/icons-material/Close";
 
 
-const AddList = () => {
+const AddList = ({handleAddList,listTitle, setListTitle}) => {
     const [showInputBox, setShowInputBox] = React.useState(false)
-    const [listTitle, setListTitle] = React.useState("")
-
-    function handleAddList(){
-        if(listTitle.length!==0){
-            alert("clicked")
-        }
-    }
+    // console.log(listTitle)
   return (
    <>
    {showInputBox ? 
