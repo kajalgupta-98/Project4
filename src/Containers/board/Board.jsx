@@ -1,7 +1,7 @@
-import React from "react";
+// import React from "react";
 import Card from "../../Components/card/Card";
 import style from "./Board.module.css";
-import Editable from "../../Components/editable/Editable";
+import AddList from '../../Components/addList/AddList';
 
 function Board() {
  
@@ -14,7 +14,7 @@ function Board() {
         <Card />
         <Card />
         <Card />
-        <Editable />
+       <AddList/>
       </div>
     </div>
   );

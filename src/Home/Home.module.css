@@ -31,7 +31,11 @@
     width: 80%;
     padding-left: 1rem;
     padding-right: 1rem;
+
+    background-color: teal;
+
 }
+
 
 .boardContainer.collapsed {
     width: 97.6%;

@@ -1,4 +1,4 @@
-import * as React from "react";
+// import * as React from "react";
 import PropTypes from "prop-types";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
@@ -6,10 +6,12 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+
 import Activity from "../activity/Activity";
 import Description from "../description/Description";
 import Title from "../title/Title";
 import { useNavigate } from "react-router-dom";
+
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -79,9 +81,11 @@ export default function DialogBox() {
           <CloseIcon />
         </IconButton>
         <DialogContent>
+
           <Title />
           <Description />
           <Activity />
+
         </DialogContent>
       </BootstrapDialog>
     </div>
