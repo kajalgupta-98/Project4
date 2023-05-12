@@ -9,6 +9,8 @@
 .board{
     min-width:fit-content;
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
     gap:1rem;
     max-height: fit-content;
    

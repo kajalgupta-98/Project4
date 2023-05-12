@@ -30,9 +30,11 @@
 }
 .container >div:nth-child(2){
     border: 1px solid red;
-    width: 80%;
+    width: fit-content;
     padding-left: 1rem;
     padding-right: 1rem;
+    max-width: 100%;
+    overflow-x: scroll;
 
 
 

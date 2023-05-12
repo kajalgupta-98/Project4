@@ -9,7 +9,7 @@ const Home = () => {
         <Navbar />
       </div>
       <div className={style.container}>
-        <div><Sidebar/></div>
+        <Sidebar/>
         <div className={style.boardContainer}>
           <Board />
         </div>
