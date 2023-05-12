@@ -1,0 +1,92 @@
+.descriptionConatiner {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    /* border: 1px solid black; */
+    gap: 1rem;
+    min-height: 10rem;
+    /* max-height:fit-content; */
+    height: auto;
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  .header p {
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  .header p:hover {
+    background-color: rgb(189, 189, 189);
+  }
+  .content {
+    display: flex;
+    justify-content: flex-start;
+    width: 60%;
+  }
+  .editorBox {
+    margin-left: 2.8rem;
+    display: flex;
+    width: 90%;
+    height: 4rem;
+    background-color: rgb(212, 212, 212);
+    border-radius: 10px;
+    padding: 1rem;
+    cursor: pointer;
+  }
+  .addDescriptionBox {
+    margin-left: 2.8rem;
+    max-width: 42rem;
+    min-height: 8rem;
+    height: auto;
+    border: 2px solid blue;
+    border-radius: 5px;
+  }
+  .bottomSection {
+    margin-left: 2.8rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 42rem;
+  }
+  .bottomSection span{
+    display:flex;
+    gap:1rem;
+    margin-left: 2rem;
+  }
+  .bottomSection p {
+    font-size: 0.8rem;
+    color: blue;
+    cursor: pointer;
+  }
+  .btnContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1rem;
+  }
+  .saveBtn {
+    height: 2rem;
+    width: 4rem;
+    border: none;
+    border-radius: 5px;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+  }
+  .cancelBtn {
+    height: 2rem;
+    width: 4rem;
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(240, 246, 248);
+    cursor: pointer;
+  }
+  
