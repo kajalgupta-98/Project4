@@ -7,8 +7,12 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
+import Activity from '../activity/Activity'
+import Description from '../description/Description'
 import Title from '../title/Title'
-import Description from "../description/Description";
+
+
+
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -47,13 +51,15 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-
-export default function DialogBox({ handleClose, open }) {
+export default function DialogBox({ setOpen, open }) {
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div>
       <BootstrapDialog
-        onClose={handleClose}
+        
         aria-labelledby="customized-dialog-title"
         open={open}
         PaperProps={{
@@ -66,19 +72,23 @@ export default function DialogBox({ handleClose, open }) {
       >
         <IconButton
           aria-label="close"
-          onClick={handleClose}
           sx={{
             position: "absolute",
             width: '5%',
             top: "0.5rem",
             right: "1rem",
           }}
+          onClick={handleClose}
         >
-          <CloseIcon />
+          <CloseIcon 
+          
+          
+          />
         </IconButton>
         <DialogContent>
-          <Title/>
-          <Description/>
+          <Title />
+          <Description />
+          <Activity />
         </DialogContent>
       </BootstrapDialog>
     </div>
