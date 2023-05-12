@@ -1,0 +1,46 @@
+.addListContainer{
+    width: 17rem;
+    margin-top: 1rem;
+    border-radius: 8px;
+    background-color: transparent;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 1rem;
+    height: 3rem;
+    cursor: pointer;
+}
+.addList{
+    width: 17rem;
+    max-height: fit-content;
+    margin-top: 1rem;
+    border-radius: 8px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap:1.2rem;
+    padding: 1rem;
+}
+.addList input{
+    height: 2rem;
+    outline:none;
+    border-color: blue;
+    border-radius: 5px;
+    padding: 5px;
+}
+.addList span{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+.addList button{
+    height: 2rem;
+    border: none;
+    background-color: blue;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}

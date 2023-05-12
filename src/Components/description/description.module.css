@@ -42,7 +42,7 @@
   }
   .addDescriptionBox {
     margin-left: 2.8rem;
-    max-width: 42rem;
+    max-width: 32rem;
     min-height: 8rem;
     height: auto;
     border: 2px solid blue;
