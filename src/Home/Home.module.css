@@ -25,12 +25,10 @@
 }
 .container >div:nth-child(1){
     width: 20%;
-    /* border: 1px solid red; */
-
 }
-.container >div:nth-child(2){
-    border: 1px solid red;
-    width: fit-content;
+.boardContainer{
+    /* border: 1px solid red; */
+    width: 80%;
     padding-left: 1rem;
     padding-right: 1rem;
     max-width: 100%;
@@ -38,6 +36,10 @@
 
 
 
+}
+
+.boardContainer.collapsed {
+    width: 97.6%;
 }
 
 

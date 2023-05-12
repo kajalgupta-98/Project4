@@ -8,8 +8,8 @@ import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import Activity from '../activity/Activity'
-
-
+import Description from '../description/Description'
+import Title from '../title/Title'
 
 
 
@@ -85,7 +85,8 @@ export default function DialogBox({ setOpen, open }) {
           />
         </IconButton>
         <DialogContent>
-
+          <Title />
+          <Description />
           <Activity />
         </DialogContent>
       </BootstrapDialog>

@@ -1,6 +1,7 @@
 import React from 'react'
 import style from "./Sidebar.module.css"
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
@@ -11,29 +12,31 @@ import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 // import Divider from '@mui/material/Divider';
 
 
-function Sidebar() {
-  const [collapsed, setCollapsed] = React.useState(false);
+function Sidebar({collapsed, setCollapsed, handleCollapse}) {
+  // const [collapsed, setCollapsed] = React.useState(false);
 
-  const handleCollapse = () => {
-    setCollapsed(!collapsed);
-  };
+  // const handleCollapse = () => {
+  //   setCollapsed(!collapsed);
+  // };
 
   return (
     
     <>
-    {collapsed ? 
-    <button id={style.expandBtn} onClick={handleCollapse}>
-          <NavigateBeforeIcon  sx={{ fontSize: "1.5rem" }}/>
-    </button>
-    :
+   
     <div className={` ${style.sideBarContainer} ${collapsed? style.collapsed : null}`}>
+    {collapsed ? 
+    
+    <button id={style.expandBtn} onClick={handleCollapse}>
+          <NavigateNextIcon  sx={{ fontSize: "1.5rem" }}/>
+    </button>
+    : <>
       <div className={style.header}>
         <button className={style.logoBtn}>T</button>
         <div style={{ display: "flex", flexDirection: "column" }}>
           <h4> Trello Workspace</h4>
           <p>Free</p>
         </div>
-        <NavigateBeforeIcon id="collapseBtn" onClick={handleCollapse} sx={{ fontSize: "1.2rem" }}/>
+        <NavigateBeforeIcon onClick={handleCollapse} sx={{ fontSize: "1.2rem" }}/>
         
       </div>
 
@@ -87,11 +90,11 @@ function Sidebar() {
           <AddOutlinedIcon sx={{ fontSize: "1.2rem" }} />
         </div>
       </div>
-      
+      </>}
    
 
     </div>
-}
+
    
   </>
   )
