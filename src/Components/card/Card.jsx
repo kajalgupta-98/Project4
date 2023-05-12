@@ -3,12 +3,15 @@ import style from "./Card.module.css";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Editable from "../editable/Editable";
 import Task from "../task/Task";
-function Card() {
-  
+
+
+function Card(props) {
+  const {id, title, date, task} = props.card
+  console.log('title', title);
   return (
     <div className={style.card}>
       <div className={style.cardHeading}>
-      <span>Todo</span>
+      <span>{title}</span>
         <span>
           <MoreHorizIcon />
         </span>
