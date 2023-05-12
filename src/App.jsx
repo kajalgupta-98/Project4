@@ -1,5 +1,7 @@
 import DialogBox from "./Components/Dialog/DialogBox";
 import Home from "./Home/Home";
+import {RecoilRoot} from 'recoil';
+
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -24,9 +26,12 @@ function App() {
     )
   );
   return (
-    <>
-      <RouterProvider router={router} />
-    </>
+   
+<RecoilRoot >
+<RouterProvider router={router} />
+
+</RecoilRoot>
+  
   );
 }
 
