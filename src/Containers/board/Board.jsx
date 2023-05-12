@@ -18,19 +18,13 @@ function Board() {
           title: `${listTitle}`,
           date: new Date(),
           task: [
-            // {
-            //   id: "",
-            //   name: "",
-            //   comments: "",
-            //   date: "",
-            //   cardName: "title",
-            // },
+          
           ],
         },
       ]);
     }
   }
-  // console.log(cardAtom);
+  console.log(cardAtom);
   return (
     <div className={style.board_outer}>
       <div className={style.board}>

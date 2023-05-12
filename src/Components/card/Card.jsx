@@ -8,29 +8,45 @@ import { useRecoilState } from "recoil";
 function Card(props) {
   const { id, title, date, task } = props.card;
   const [tasktitle, setTasktitle] = React.useState("");
-  const [taskName, settaskName] = useRecoilState(CardItem);
+  const [taskArr, setTaskArr] = useRecoilState(CardItem);
   const addTask = () => {
     if (!tasktitle) {
       return -1;
     }
-    const filterValue = taskName.filter((element) => {
-      if (element.id === id) {
-        return {
-          ...element,
-          task: task.push({
-            id: Math.random(),
-            name: tasktitle,
-            comments: "",
-            date: Date.now(),
-            cardName: element.title,
-          }),
-        };
-      }
-      return element;
-    });
+ 
+
+            setTaskArr(...taskArr,{
+              id: Math.random(),
+              name: tasktitle,
+              comments: "",
+              date: Date.now(),
+              cardName: "element.title",
+            })
+
+    // const index =taskArr.findIndex(ele=>)
+
+    // const filterValue = taskArr.filter((element) => {
+
+    //   if (element.id === id) {
+    //     // return {
+    //     //   // ...element,
+    //     //   // task: task.push({
+    //     //   //   id: Math.random(),
+    //     //   //   name: tasktitle,
+    //     //   //   comments: "",
+    //     //   //   date: Date.now(),
+    //     //   //   cardName: element.title,
+    //     //   // }),
+    //     // };
+    //     console.log(element)
+    //   }
+    //   // return element;
+    // });
     // settaskName([...taskName, filterValue]);
-    console.log(filterValue);
+  console.log(taskArr);
+
   };
+
   return (
     <div className={style.card}>
       <div className={style.cardHeading}>
