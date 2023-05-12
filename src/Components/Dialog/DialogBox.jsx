@@ -1,14 +1,18 @@
-import * as React from "react";
+// import * as React from "react";
 import PropTypes from "prop-types";
-import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-import Description  from "../description/Description";
-import Title from "../title/Title"
+
+import Activity from "../activity/Activity";
+import Description from "../description/Description";
+import Title from "../title/Title";
+import { useNavigate } from "react-router-dom";
+
+
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -47,39 +51,41 @@ BootstrapDialogTitle.propTypes = {
   onClose: PropTypes.func.isRequired,
 };
 
-export default function DialogBox({ setOpen, open }) {
-  const handleClose = () => {
-    setOpen(!open);
-  };
-
+export default function DialogBox() {
+  const navigate = useNavigate();
   return (
     <div>
       <BootstrapDialog
-        onClose={handleClose}
         aria-labelledby="customized-dialog-title"
-        open={open}
+        open={true}
         PaperProps={{
           sx: {
             position: "relative",
             height: "80vh",
-            width: "100vh",
+            width: "100vw",
           },
         }}
       >
         <IconButton
           aria-label="close"
-          onClick={handleClose}
           sx={{
             position: "absolute",
+            width: "5%",
             top: "0.5rem",
             right: "1rem",
+          }}
+          onClick={() => {
+            navigate("/");
           }}
         >
           <CloseIcon />
         </IconButton>
         <DialogContent>
-          <Title/>
-          <Description/>
+
+          <Title />
+          <Description />
+          <Activity />
+
         </DialogContent>
       </BootstrapDialog>
     </div>
