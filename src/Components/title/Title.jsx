@@ -12,6 +12,7 @@ function Title() {
       <textarea type="text" value={title} onChange={(e)=>setTitle(e.target.value)} className={style.title_box}/>
     <span>in list Todo</span>
       </div>
+
     </div>
 
   )
