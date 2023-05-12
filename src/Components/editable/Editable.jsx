@@ -5,7 +5,7 @@ import AddCardIcon from "@mui/icons-material/AddCard";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import CloseIcon from '@mui/icons-material/Close';
 
-function Editable() {
+function Editable({name,setName,addList}) {
   const [showBtn, setShowBtn] = useState(true);
   const handleClick = () => {
         setShowBtn(!showBtn)
@@ -26,10 +26,13 @@ function Editable() {
   </span>
   </div>:
   <div className={style.btnDiv}>
-    <input type="text" placeholder="Enter a title for this card...." />
+    <input type="text" placeholder="Enter a title for this card...."
+    onChange={(e)=>setName(e.target.value)}
+    
+    />
     <div className={style.inputBtn}>
       <div className={style.btnAdd}>
-      <button>Add Cart</button>
+      <button onClick={addList}>Add Card</button>
         <span onClick={handleClose}>
         <CloseIcon className={style.closeBtn} />
         </span>
