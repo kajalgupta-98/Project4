@@ -27,6 +27,7 @@ function Card(props) {
           title:name,
           date: "today",
           Comment:[],
+          description:"",
           listName:ele.title,
         })
         
@@ -55,8 +56,8 @@ function Card(props) {
       <div>
         {
         
-        TaskArr.map((ele)=>{
-          return <Task task={ele} />
+        TaskArr.map((ele, index)=>{
+          return <Task task={ele} index={index} />
         })
         }
       </div>

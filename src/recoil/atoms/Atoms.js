@@ -9,5 +9,14 @@ const  CardItem = atom({
     default:[]
 });
 
+export const taskDetails = atom({
+    key:"task details",
+    default: {
+        description:"",
+        title:"",
+        comments:[]
+    }
+})
 
+// export {taskDetails}
 export default CardItem;
