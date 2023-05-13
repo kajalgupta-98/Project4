@@ -24,7 +24,7 @@ function Board() {
       ]);
     }
   }
-  console.log(cardAtom);
+
   return (
     <div className={style.board_outer}>
       <div className={style.board}>
