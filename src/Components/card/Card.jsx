@@ -1,49 +1,47 @@
-import React from "react";
+import React, { useState,useRef } from "react";
 import style from "./Card.module.css";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Editable from "../editable/Editable";
 import Task from "../task/Task";
-import CardItem from "../../recoil/atoms/Atoms";
 import { useRecoilState } from "recoil";
+import CardItem from "../../recoil/atoms/Atoms";
+
 function Card(props) {
-  const { id, title, date, task } = props.card;
-  const [tasktitle, setTasktitle] = React.useState("");
-  const [taskArr, setTaskArr] = useRecoilState(CardItem);
-  const addTask = () => {
-    if (!tasktitle) {
-      return -1;
-    }
  
+  const { id, title, date, task  } = props.card;
+  const index= props.index;
+  const [name, setName] = useState("");
+  const [cardArray, setCardArray] = useRecoilState(CardItem);
+  const TaskArr = cardArray[index].task||[];
 
-            setTaskArr(...taskArr,{
-              id: Math.random(),
-              name: tasktitle,
-              comments: "",
-              date: Date.now(),
-              cardName: "element.title",
-            })
+  const addList = () => {
+    if (!name) {
+      return;
+    }
 
-    // const index =taskArr.findIndex(ele=>)
+    const filterArr = cardArray.map((ele)=>{
+      if(ele.id == id){
+        const obj = {...ele};
+        const taskarr = [...obj.task];
+        taskarr.push({
+          title:name,
+          date: "today",
+          Comment:[],
+          description:"",
+          listName:ele.title,
+        })
+        
+        obj.task=[...taskarr];
+        return obj;
+        
+      }else{
+        return ele;
 
-    // const filterValue = taskArr.filter((element) => {
+      }
+    })
 
-    //   if (element.id === id) {
-    //     // return {
-    //     //   // ...element,
-    //     //   // task: task.push({
-    //     //   //   id: Math.random(),
-    //     //   //   name: tasktitle,
-    //     //   //   comments: "",
-    //     //   //   date: Date.now(),
-    //     //   //   cardName: element.title,
-    //     //   // }),
-    //     // };
-    //     console.log(element)
-    //   }
-    //   // return element;
-    // });
-    // settaskName([...taskName, filterValue]);
-  console.log(taskArr);
+ setCardArray(filterArr);
+ 
 
   };
 
@@ -56,6 +54,7 @@ function Card(props) {
         </span>
       </div>
       <div>
+<<<<<<< HEAD
         <Task />
       </div>
 
@@ -65,6 +64,18 @@ function Card(props) {
           setTasktitle={setTasktitle}
           addTask={addTask}
         />
+=======
+        {
+        
+        TaskArr.map((ele, index)=>{
+          return <Task task={ele} index={index} />
+        })
+        }
+      </div>
+
+      <div className={style.editableDiv}>
+        <Editable name={name} setName={setName} addList={addList} />
+>>>>>>> 7344b08bb7129d68075f121dc2cba9113ba9078b
       </div>
     </div>
   );

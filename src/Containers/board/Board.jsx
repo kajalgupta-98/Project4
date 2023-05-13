@@ -28,8 +28,9 @@ function Board() {
   return (
     <div className={style.board_outer}>
       <div className={style.board}>
-        {cardAtom.map((card,ind) => {
-          return <Card card={card} key={ind} />;
+        {cardAtom.map((card,index)=>{
+       
+         return <Card card={card} index={index} key={card.id} />
         })}
         <AddList
           handleAddList={handleAddList}
