@@ -3,16 +3,20 @@ import style from "./description.module.css";
 import { CgMenuLeftAlt } from "react-icons/cg";
 import { TfiAnnouncement } from "react-icons/tfi";
 import { AiOutlineInfoCircle } from "react-icons/ai"
-import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import { useRecoilState } from "recoil";
+import CardItem, { taskDetails } from "../../recoil/atoms/Atoms";
 
 
 const Description = () => {
+  const [taskDescription, setTaskDescription] = useRecoilState(taskDetails)
   const [showaddDescriptionBox, setShowaddDescriptionBox] = useState(false);
   const [value, setValue] = useState("");
 
   function handleShowAddDescriptionBox() {
-    setShowaddDescriptionBox(!showaddDescriptionBox);
+    
+    
+
   }
   return (
     <div className={style.descriptionConatiner}>
@@ -24,9 +28,13 @@ const Description = () => {
 
       <div className={style.content}>
         {showaddDescriptionBox ? (
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div className={style.addDescriptionBox}>
-              <ReactQuill theme="snow" value={value} onChange={setValue} />;
+          <div style={{ display: "flex", flexDirection: "column"  }}>
+            <div >
+            
+              <textarea placeholder="Enter disription here..." style={{paddingTop:"0.5rem",paddingLeft:"1rem"}}  id="" cols="68" rows="4" value={value} onChange={(e)=>setValue(e.target.value)}/ >
+             
+             
+              
             </div>
 
             <div className={style.bottomSection}>
@@ -57,6 +65,7 @@ const Description = () => {
             onClick={handleShowAddDescriptionBox}
           >
             Add a more detailed description
+       
           </div>
         )}
       </div>

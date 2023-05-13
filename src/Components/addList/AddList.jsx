@@ -6,7 +6,6 @@ import CloseIcon from "@mui/icons-material/Close";
 
 const AddList = ({handleAddList,listTitle, setListTitle}) => {
     const [showInputBox, setShowInputBox] = React.useState(false)
-    // console.log(listTitle)
   return (
    <>
    {showInputBox ? 

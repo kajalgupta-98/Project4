@@ -2,17 +2,23 @@ import React, { useState } from "react";
 import style from "./Task.module.css";
 import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { taskDetails } from "../../recoil/atoms/Atoms";
 
+function Task({ task, mainId }) {
+  const [taskDetail, setTaskDetail] = useRecoilState(taskDetails);
 
-function Task({task}) {
-  const {title}=task;
-  console.log(title)
- 
+  const { title, id } = task;
 
   const [visibility, setVisibility] = useState(false);
   const navigate = useNavigate();
+
   const handleClick = () => {
-    navigate("/details");
+    setTaskDetail({
+      mainId: mainId,
+      id: id,
+    });
+    navigate(`/details/${mainId + "_" + id}`);
   };
 
   return (

@@ -12,7 +12,6 @@ import Description from "../description/Description";
 import Title from "../title/Title";
 import { useNavigate } from "react-router-dom";
 
-
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
     padding: theme.spacing(2),
@@ -81,11 +80,9 @@ export default function DialogBox() {
           <CloseIcon />
         </IconButton>
         <DialogContent>
-
           <Title />
           <Description />
           <Activity />
-
         </DialogContent>
       </BootstrapDialog>
     </div>
