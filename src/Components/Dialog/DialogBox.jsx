@@ -11,8 +11,6 @@ import Activity from "../activity/Activity";
 import Description from "../description/Description";
 import Title from "../title/Title";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
-
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -54,8 +52,6 @@ BootstrapDialogTitle.propTypes = {
 
 export default function DialogBox() {
   const navigate = useNavigate();
-
-  
   return (
     <div>
       <BootstrapDialog
@@ -84,11 +80,9 @@ export default function DialogBox() {
           <CloseIcon />
         </IconButton>
         <DialogContent>
-
           <Title />
           <Description />
           <Activity />
-
         </DialogContent>
       </BootstrapDialog>
     </div>
