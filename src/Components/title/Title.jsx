@@ -21,6 +21,7 @@ console.log(taskTitle.title)
       <textarea type="text" value={taskTitle.title} onChange={addTaskTitle} className={style.title_box}/>
       <span>in list Todo</span>
       </div>
+
     </div>
 
   )
