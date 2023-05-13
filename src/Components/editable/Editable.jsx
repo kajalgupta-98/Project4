@@ -48,23 +48,9 @@ function Editable({name,setName,addList}) {
     
     <div>{dislay}</div>
   )
-
- 
-
-  
-  
-  
-    
-  
 }
 
 
-{/* <div className={style.container}>
-<p className={style.buttonDiv} onClick={handleClick}>
-  <AddIcon />
-  Add a Card
-</p>
-<AddCardIcon />
-</div> */}
+
 
 export default Editable;

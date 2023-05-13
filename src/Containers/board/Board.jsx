@@ -15,22 +15,16 @@ function Board() {
   if(listTitle.length!==0){
 
     setCardAtom([...cardAtom, {
-      id:cardAtom.length+5,
+      id:cardAtom.length+1,
       title:`${listTitle}`,
       date:new Date(),
       task:[
-          // {
-          //     id:'',
-          //     name:"",
-          //     comments:"",
-          //     date:"",
-          //     cardName:"title",
-          // }
+          
       ]
     }])
   }
 }
-// console.log(cardAtom);
+
   return (
     <div className={style.board_outer}>
       <div className={style.board}>
