@@ -2,28 +2,23 @@ import React, { useState } from "react";
 import style from "./Task.module.css";
 import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
 import { useNavigate } from "react-router-dom";
-import { useRecoilState, useRecoilValue } from "recoil";
-import CardItem, { taskDetails } from "../../recoil/atoms/Atoms";
+import { useRecoilState } from "recoil";
+import { taskDetails } from "../../recoil/atoms/Atoms";
 
+function Task({ task, mainId }) {
+  const [taskDetail, setTaskDetail] = useRecoilState(taskDetails);
 
-function Task({task}) {
-  const [taskDetail, setTaskDetail] =useRecoilState(taskDetails)
-  // const cardArray = useRecoilValue(CardItem)
-
-  // const TaskArr = cardArray[index].task||[];
-
-
-  const {title}=task;
-  console.log(title)
- 
+  const { title, id } = task;
 
   const [visibility, setVisibility] = useState(false);
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setTaskDetail(task)
-    navigate("/details");
-
+    setTaskDetail({
+      mainId: mainId,
+      id: id,
+    });
+    navigate(`/details/${mainId + "_" + id}`);
   };
 
   return (

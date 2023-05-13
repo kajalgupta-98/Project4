@@ -5,39 +5,15 @@ import AddCardIcon from "@mui/icons-material/AddCard";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import CloseIcon from "@mui/icons-material/Close";
 
-function Editable({name,setName,addList}) {
+function Editable({ name, setName, addList }) {
   const [showBtn, setShowBtn] = useState(true);
   const handleClick = () => {
     setShowBtn(!showBtn);
   };
 
-  const handleClose=()=>{
-    setShowBtn(!showBtn)
-  }
-
-  const dislay = showBtn?<div className={style.container}>
-  <p className={style.buttonDiv} onClick={handleClick}>
-    <AddIcon />
-    Add a Card
-  </p>
-  <span className={style.moreIcons}>
-  <AddCardIcon />
-
-  </span>
-  </div>:
-  <div className={style.btnDiv}>
-    <input type="text" placeholder="Enter a title for this card...."
-    onChange={(e)=>setName(e.target.value)}
-    
-    />
-    <div className={style.inputBtn}>
-      <div className={style.btnAdd}>
-      <button onClick={addList}>Add Card</button>
-        <span onClick={handleClose}>
-        <CloseIcon className={style.closeBtn} />
-        </span>
-      </div>
-    <MoreHorizIcon/>
+  const handleClose = () => {
+    setShowBtn(!showBtn);
+  };
 
   const dislay = showBtn ? (
     <div className={style.container}>
@@ -54,13 +30,11 @@ function Editable({name,setName,addList}) {
       <input
         type="text"
         placeholder="Enter a title for this card...."
-        onChange={(e) => {
-          setTasktitle(e.target.value);
-        }}
+        onChange={(e) => setName(e.target.value)}
       />
       <div className={style.inputBtn}>
         <div className={style.btnAdd}>
-          <button onClick={addTask}>Add Task</button>
+          <button onClick={addList}>Add Card</button>
           <span onClick={handleClose}>
             <CloseIcon className={style.closeBtn} />
           </span>
@@ -71,16 +45,6 @@ function Editable({name,setName,addList}) {
   );
 
   return <div>{dislay}</div>;
-}
-
-{
-  /* <div className={style.container}>
-<p className={style.buttonDiv} onClick={handleClick}>
-  <AddIcon />
-  Add a Card
-</p>
-<AddCardIcon />
-</div> */
 }
 
 export default Editable;

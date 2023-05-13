@@ -6,13 +6,8 @@ const CardItem = atom({
 });
 
 export const taskDetails = atom({
-    key:"task details",
-    default: {
-        description:"",
-        title:"",
-        comments:[]
-    }
-})
+  key: "task details",
+  default: {},
+});
 
-// export {taskDetails}
 export default CardItem;

@@ -1,30 +1,36 @@
-import React, { useState } from 'react'
-import style from './Title.module.css'
-import VideoLabelIcon from '@mui/icons-material/VideoLabel';
-import { useRecoilState } from 'recoil';
-import { taskDetails } from '../../recoil/atoms/Atoms';
+import React, { useState } from "react";
+import style from "./Title.module.css";
+import VideoLabelIcon from "@mui/icons-material/VideoLabel";
+import { useRecoilState } from "recoil";
+import CardItem, { taskDetails } from "../../recoil/atoms/Atoms";
 
 function Title() {
-  // const [title, setTitle] = useState('')
-  const [taskTitle, setTaskTitle] = useRecoilState(taskDetails)
+  const [title, setTitle] = useState("");
+  const [cardId, setCardId] = useRecoilState(taskDetails);
+  const [data, setData] = useRecoilState(CardItem);
 
-  function addTaskTitle(e){
-    const obj = {...taskTitle}
-    obj.title = e.target.value
-    setTaskTitle(obj)
-  }
-console.log(taskTitle.title)
+  function addTaskTitle(e) {}
+  const mainIndex = data.findIndex((ele) => ele.id === cardId.mainId);
+  const taskIndex = data[mainIndex].task.findIndex(
+    (ele) => ele.id === cardId.id
+  );
+  React.useEffect(() => {
+    setTitle(data[mainIndex].task[taskIndex].title);
+  }, []);
   return (
     <div className={style.title_div}>
-      <VideoLabelIcon fontSize='small'/>
+      <VideoLabelIcon fontSize="small" />
       <div className={style.title_text}>
-      <textarea type="text" value={taskTitle.title} onChange={addTaskTitle} className={style.title_box}/>
-      <span>in list Todo</span>
+        <input
+          type="text"
+          value={title}
+          onChange={addTaskTitle}
+          className={style.title_box}
+        />
+        <span>in list </span>
       </div>
-
     </div>
-
-  )
+  );
 }
 
-export default Title
+export default Title;
