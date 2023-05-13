@@ -20,9 +20,6 @@ const Description = () => {
       obj.description= value.replace(/<\/?p>/g, '')
       setTaskDescription(obj)
   }
-  console.log(taskDescription)
-
-  console.log(value)
   return (
     <div className={style.descriptionConatiner}>
       <div className={style.header}>

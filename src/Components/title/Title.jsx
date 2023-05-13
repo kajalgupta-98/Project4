@@ -9,11 +9,33 @@ function Title() {
   const [cardId, setCardId] = useRecoilState(taskDetails);
   const [data, setData] = useRecoilState(CardItem);
 
-  function addTaskTitle(e) {}
+  function chagneTaskTitle(e) {
+    setTitle(e.target.value)
+  }
+  const addTask = ()=>{
+    const mainIndex = data.findIndex((ele) => ele.id === cardId.mainId);
+    const newTaskArr = data[mainIndex].task.map((ele)=>{
+      if(ele.id === cardId.id){
+        const newEle = {...ele}
+        newEle.title = title
+        return newEle
+      }
+      return ele
+  });
+  const newData = {...data[mainIndex], task:newTaskArr}
+  const updatedData = data.map((ele)=>{
+    if(ele.id===cardId.mainId){
+      return newData
+    }
+    return ele
+  })
+  setData(updatedData)
+  }
+  
   const mainIndex = data.findIndex((ele) => ele.id === cardId.mainId);
   const taskIndex = data[mainIndex].task.findIndex(
-    (ele) => ele.id === cardId.id
-  );
+  (ele) => ele.id === cardId.id
+);
   React.useEffect(() => {
     setTitle(data[mainIndex].task[taskIndex].title);
   }, []);
@@ -24,10 +46,11 @@ function Title() {
         <input
           type="text"
           value={title}
-          onChange={addTaskTitle}
+          onChange={(e)=> chagneTaskTitle(e)}
+          onBlur={addTask}
           className={style.title_box}
         />
-        <span>in list </span>
+        <span>in list {data[mainIndex].title}</span>
       </div>
     </div>
   );
