@@ -1,9 +1,13 @@
-import React, { useState } from "react";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+// import React, { useState } from "react";
+// import ReactQuill from "react-quill";
+// import "react-quill/dist/quill.snow.css";
 
-export default function TextEditor() {
-  const [value, setValue] = useState("");
+// export default function TextEditor() {
+//   const [value, setValue] = useState("");
+  
+//   const handleChange =(e)=>{
+//     setValue(e.target.value)
+//   }
+//   console.log(value)
 
-  return <ReactQuill style={{width: "93%",marginLeft:"2.5rem"}} theme="snow" value={value} onChange={setValue} />;
-}
+//   return   
