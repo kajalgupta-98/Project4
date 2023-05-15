@@ -41,6 +41,7 @@ function Card(props) {
     setCardArray(filterArr);
   };
 
+ 
   return (
     <div className={style.card}>
       <div className={style.cardHeading}>
