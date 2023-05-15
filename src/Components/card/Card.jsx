@@ -13,6 +13,8 @@ function Card(props) {
   const [cardArray, setCardArray] = useRecoilState(CardItem);
   const TaskArr = cardArray[index].task || [];
   const mainId = cardArray[index].id;
+
+
   const addList = () => {
     if (!name) {
       return;
@@ -51,7 +53,7 @@ function Card(props) {
       </div>
       <div>
         {TaskArr.map((ele, index) => {
-          return <Task task={ele} index={index} mainId={mainId} />;
+          return <Task task={ele} index={index} mainId={mainId} cardArray={cardArray} setCardArray={setCardArray}/>;
         })}
       </div>
 

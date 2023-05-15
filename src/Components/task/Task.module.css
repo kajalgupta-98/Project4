@@ -20,21 +20,32 @@
     width: 80%;
     word-wrap: break-word;
 }
-.pencil{
+.edit{
+    display: flex;
+    gap: 0.5rem;
     border-radius: 8px;
     font-size: 2px;
-    margin: 2px 0;
+    margin: 2px 3px;
     padding: 4px;
     color: rgb(88, 88, 88);
 }
-.pencil:hover{
+.edit:hover{
     background-color: #dde0e6;
 }
-.hiddenPencil{
+.hiddenEdit{
     visibility: hidden;
-    border-radius: 8px;
+    /* border-radius: 8px;
     font-size: 2px;
     margin: 2px 0;
     padding: 4px;
-    color: rgb(88, 88, 88);
+    color: rgb(88, 88, 88); */
+}
+
+.deleteBtn{
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    /* height: 2rem; */
+    font-size: 20px;
+    /* width: 2rem; */
 }
