@@ -5,30 +5,15 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import { taskDetails } from "../../recoil/atoms/Atoms";
 import {AiFillDelete} from 'react-icons/ai'
-import { useDrag } from "react-dnd";
 
-function Task({ task, mainId, cardArray, setCardArray, removeTask, moveTask}) {
+function Task({ task, mainId, cardArray, setCardArray}) {
   const [taskDetail, setTaskDetail] = useRecoilState(taskDetails);
 
-  const { title, id, index } = task;
+  const { title, id} = task;
 
   const [visibility, setVisibility] = useState(false);
   const navigate = useNavigate();
 
-  const [{ isDragging }, dragRef] = useDrag({
-    type: "BOX",
-    item: () => ({ ...task, index }),
-    end: (item, monitor) => {
-      const dropResult = monitor.getDropResult();
-
-      if (item && dropResult) {
-        onDropPlayer(item);
-      }
-    },
-    collect: (monitor) => ({
-      isDragging: monitor.isDragging(),
-    }),
-  });
 
   const handleClick = () => {
     setTaskDetail({
@@ -60,7 +45,6 @@ function Task({ task, mainId, cardArray, setCardArray, removeTask, moveTask}) {
   return (
     <>
       <div
-      ref={dragRef} onDrag={()=>removeTask(index)} onDrop={moveTask}
         className={style.task_box}
         onMouseOver={() => setVisibility(true)}
         onMouseOut={() => setVisibility(false)}
