@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
 import CardItem, { taskDetails } from "../../recoil/atoms/Atoms";
 import { AiFillDelete } from "react-icons/ai";
-import { Draggable } from "react-beautiful-dnd";
 function Task({ task, mainId }) {
   const [taskDetail, setTaskDetail] = useRecoilState(taskDetails);
   const [cardArray, setCardArray] = useRecoilState(CardItem);
@@ -40,27 +39,20 @@ function Task({ task, mainId }) {
   };
 
   return (
-    <Draggable draggableId={mainId} index={id}>
-      {(Provided) => (
-        <div
-          ref={Provided.innerRef}
-          {...Provided.draggableProps}
-          {...Provided.dragHandleProps}
-          className={style.task_box}
-          onMouseOver={() => setVisibility(true)}
-          onMouseOut={() => setVisibility(false)}
-        >
-          <span className={style.task}>{title}</span>
+    <div
+      className={style.task_box}
+      onMouseOver={() => setVisibility(true)}
+      onMouseOut={() => setVisibility(false)}
+    >
+      <span className={style.task}>{title}</span>
 
-          <div className={visibility ? style.edit : style.hiddenEdit}>
-            <ModeEditOutlinedIcon onClick={handleClick} />
-            <button className={style.deleteBtn}>
-              <AiFillDelete onClick={deleteTask} />
-            </button>
-          </div>
-        </div>
-      )}
-    </Draggable>
+      <div className={visibility ? style.edit : style.hiddenEdit}>
+        <ModeEditOutlinedIcon onClick={handleClick} />
+        <button className={style.deleteBtn}>
+          <AiFillDelete onClick={deleteTask} />
+        </button>
+      </div>
+    </div>
   );
 }
 
