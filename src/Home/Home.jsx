@@ -1,3 +1,4 @@
+
 import React from "react"
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
@@ -18,6 +19,7 @@ const Home = () => {
         <Navbar />
       </div>
       <div className={style.container}>
+
         
         <div className={` ${style.sideBarContainer} ${collapsed ? style.collapsed : null}`}>
           {collapsed ?
@@ -30,6 +32,7 @@ const Home = () => {
 
         <div className={` ${style.boardContainer} ${collapsed ? style.collapsed : null}`}>
           <Board />
+
         </div>
       </div>
     </div>

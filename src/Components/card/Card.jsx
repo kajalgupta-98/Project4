@@ -8,7 +8,7 @@ import CardItem from "../../recoil/atoms/Atoms";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-
+import { v4 as uuidv4 } from "uuid";
 function Card(props) {
   const { id, title, date, task } = props.card;
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -17,7 +17,6 @@ function Card(props) {
   const [cardArray, setCardArray] = useRecoilState(CardItem);
   const TaskArr = cardArray[index].task || [];
   const mainId = cardArray[index].id;
-
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -25,9 +24,6 @@ function Card(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-
-
 
   const addList = () => {
     if (!name) {
@@ -39,7 +35,7 @@ function Card(props) {
         const obj = { ...ele };
         const taskarr = [...obj.task];
         taskarr.push({
-          id: taskarr.length + 1,
+          id: uuidv4(),
           title: name,
           date: "today",
           Comment: [],
@@ -95,7 +91,9 @@ function Card(props) {
 >
         {TaskArr.map((ele, index) => {
 
-          return <Task task={ele} index={index} mainId={mainId} cardArray={cardArray} setCardArray={setCardArray} />;
+
+          return <Task task={ele} index={index}key={ele.id} mainId={mainId} cardArray={cardArray} setCardArray={setCardArray} />;
+
         })}
       </div>
 
