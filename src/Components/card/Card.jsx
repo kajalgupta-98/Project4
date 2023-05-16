@@ -8,6 +8,7 @@ import CardItem from "../../recoil/atoms/Atoms";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { Droppable } from "react-beautiful-dnd";
 function Card(props) {
   const { id, title, date, task } = props.card;
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -16,7 +17,6 @@ function Card(props) {
   const [cardArray, setCardArray] = useRecoilState(CardItem);
   const TaskArr = cardArray[index].task || [];
   const mainId = cardArray[index].id;
-
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -24,7 +24,6 @@ function Card(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
   const addList = () => {
     if (!name) {
       return;
@@ -35,7 +34,7 @@ function Card(props) {
         const obj = { ...ele };
         const taskarr = [...obj.task];
         taskarr.push({
-          id: taskarr.length + 1,
+          id: String(taskarr.length + 1),
           title: name,
           date: "today",
           Comment: [],
@@ -54,50 +53,60 @@ function Card(props) {
   };
 
   return (
-    <div className={style.card}>
-      <div className={style.cardHeading}>
-        <span>{title}</span>
-        <span>
-          <IconButton
-            onClick={(event) => {
-              handleClick(event);
-            }}
-          >
-            <MoreHorizIcon />
-          </IconButton>
-        </span>
-        <Menu
-          id="basic-menu"
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          MenuListProps={{
-            "aria-labelledby": "basic-button",
-          }}
+    <Droppable droppableId={id}>
+      {(Provided) => (
+        <div
+          className={style.card}
+          {...Provided.droppableProps}
+          {...Provided.placeholder}
+          ref={Provided.innerRef}
         >
-          <MenuItem
-            onClick={() => {
-              const newList = cardArray.filter((ele) => {
-                return ele.id !== id;
-              });
-              setCardArray(newList);
-            }}
-          >
-            Delete
-          </MenuItem>
-        </Menu>
-      </div>
-      <div>
-        {TaskArr.map((ele, index) => {
+          <div className={style.cardHeading}>
+            <span>{title}</span>
+            <span>
+              <IconButton
+                onClick={(event) => {
+                  handleClick(event);
+                }}
+              >
+                <MoreHorizIcon />
+              </IconButton>
+            </span>
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              MenuListProps={{
+                "aria-labelledby": "basic-button",
+              }}
+            >
+              <MenuItem
+                onClick={() => {
+                  const newList = cardArray.filter((ele) => {
+                    return ele.id !== id;
+                  });
+                  setCardArray(newList);
+                }}
+              >
+                Delete
+              </MenuItem>
+            </Menu>
+          </div>
+          <div>
+            {TaskArr.map((ele, index) => {
+              return (
+                <Task task={ele} index={index} mainId={mainId} key={index} />
+              );
+            })}
+          </div>
 
-          return <Task task={ele} index={index} mainId={mainId} cardArray={cardArray} setCardArray={setCardArray}/>;
-        })}
-      </div>
-
-      <div className={style.editableDiv}>
-        <Editable name={name} setName={setName} addList={addList} />
-      </div>
-    </div>
+          <div className={style.editableDiv}>
+            <Editable name={name} setName={setName} addList={addList} />
+          </div>
+        </div>
+      )}
+    </Droppable>
   );
 }
 
