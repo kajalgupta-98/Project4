@@ -102,9 +102,37 @@ function Card(props) {
               )}
 
               <span>
-                <MoreHorizIcon />
+                <IconButton onClick={handleClick}>
+                  <MoreHorizIcon />
+                </IconButton>
               </span>
             </div>
+            <Menu
+              id="demo-positioned-menu"
+              aria-labelledby="demo-positioned-button"
+              anchorEl={anchorEl}
+              open={open}
+              onClose={handleClose}
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "left",
+              }}
+            >
+              <MenuItem
+                onClick={() => {
+                  const newList = cardArray.filter((ele) => {
+                    return ele.id !== mainId;
+                  });
+                  setCardArray(newList);
+                }}
+              >
+                Delete
+              </MenuItem>
+            </Menu>
             <div>
               {TaskArr.map((ele, index) => {
                 return (
