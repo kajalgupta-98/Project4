@@ -20,6 +20,7 @@ function Board() {
         },
       ]);
     }
+    setListTitle("")
   }
 
   return (

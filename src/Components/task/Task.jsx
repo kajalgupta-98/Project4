@@ -7,11 +7,14 @@ import CardItem, { taskDetails } from "../../recoil/atoms/Atoms";
 import { AiFillDelete } from "react-icons/ai";
 function Task({ task, mainId }) {
   const [taskDetail, setTaskDetail] = useRecoilState(taskDetails);
+
   const [cardArray, setCardArray] = useRecoilState(CardItem);
   const { title, id } = task;
 
+
   const [visibility, setVisibility] = useState(false);
   const navigate = useNavigate();
+
 
   const handleClick = () => {
     setTaskDetail({

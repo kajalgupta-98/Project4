@@ -24,6 +24,7 @@ function Card(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
   const addList = () => {
     if (!name) {
       return;
@@ -51,7 +52,7 @@ function Card(props) {
 
     setCardArray(filterArr);
   };
-
+  
   return (
     <div className={style.card}>
       <div className={style.cardHeading}>
@@ -86,9 +87,13 @@ function Card(props) {
           </MenuItem>
         </Menu>
       </div>
-      <div>
+      <div  
+>
         {TaskArr.map((ele, index) => {
-          return <Task task={ele} index={index} mainId={mainId} key={index} />;
+
+
+          return <Task task={ele} index={index}key={ele.id} mainId={mainId} cardArray={cardArray} setCardArray={setCardArray} />;
+
         })}
       </div>
 
