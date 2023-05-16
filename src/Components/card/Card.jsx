@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import style from "./Card.module.css";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Editable from "../editable/Editable";
@@ -7,9 +7,13 @@ import { useRecoilState } from "recoil";
 import CardItem from "../../recoil/atoms/Atoms";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import { v4 as uuidv4 } from "uuid";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 function Card(props) {
   const { id, title, date, task } = props.card;
+  const [anchorEl, setAnchorEl] = React.useState(null);
   const index = props.index;
   const [name, setName] = useState("");
   const [cardArray, setCardArray] = useRecoilState(CardItem);
@@ -17,6 +21,13 @@ function Card(props) {
   const [changeName, setChangeName] = useState("");
   const TaskArr = cardArray[index].task || [];
   const mainId = cardArray[index].id;
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const addList = () => {
     if (!name) {

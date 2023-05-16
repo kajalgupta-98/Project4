@@ -1,7 +1,6 @@
 import React from 'react'
 import style from "./Sidebar.module.css"
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
-import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
@@ -9,27 +8,13 @@ import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
-// import Divider from '@mui/material/Divider';
 
 
 function Sidebar({collapsed, setCollapsed, handleCollapse}) {
-  // const [collapsed, setCollapsed] = React.useState(false);
-
-  // const handleCollapse = () => {
-  //   setCollapsed(!collapsed);
-  // };
 
   return (
-    
-    <>
    
-    <div className={` ${style.sideBarContainer} ${collapsed? style.collapsed : null}`}>
-    {collapsed ? 
-    
-    <button id={style.expandBtn} onClick={handleCollapse}>
-          <NavigateNextIcon  sx={{ fontSize: "1.5rem" }}/>
-    </button>
-    : <>
+  <>
       <div className={style.header}>
         <button className={style.logoBtn}>T</button>
         <div style={{ display: "flex", flexDirection: "column" }}>
@@ -90,13 +75,7 @@ function Sidebar({collapsed, setCollapsed, handleCollapse}) {
           <AddOutlinedIcon sx={{ fontSize: "1.2rem" }} />
         </div>
       </div>
-      </>}
-   
-
-    </div>
-
-   
-  </>
+      </>
   )
 }
 

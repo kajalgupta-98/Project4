@@ -80,6 +80,7 @@ function Board() {
         },
       ]);
     }
+    setListTitle("")
   }
 
   return (
