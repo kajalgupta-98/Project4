@@ -5,6 +5,8 @@ import Editable from "../editable/Editable";
 import Task from "../task/Task";
 import { useRecoilState } from "recoil";
 import CardItem from "../../recoil/atoms/Atoms";
+import { Draggable, Droppable } from "react-beautiful-dnd";
+import { v4 as uuidv4 } from "uuid";
 
 function Card(props) {
   const { id, title, date, task } = props.card;
@@ -15,6 +17,7 @@ function Card(props) {
   const [changeName, setChangeName] = useState("");
   const TaskArr = cardArray[index].task || [];
   const mainId = cardArray[index].id;
+
   const addList = () => {
     if (!name) {
       return;
@@ -25,9 +28,9 @@ function Card(props) {
         const obj = { ...ele };
         const taskarr = [...obj.task];
         taskarr.push({
-          id: taskarr.length + 1,
+          id: uuidv4(),
           title: name,
-          date: "today",
+          date: new Date(),
           Comment: [],
           description: "",
           listName: ele.title,
@@ -64,33 +67,70 @@ function Card(props) {
   };
 
   return (
-    <div className={style.card}>
-      <div className={style.cardHeading}>
-        {showinput ? (
-          <span onClick={handlChangeName}>{title}</span>
-        ) : (
-          <input
-            onBlur={handleBlur}
-            onChange={(e) => setChangeName(e.target.value)}
-            value={changeName}
-            type="text"
-          />
-        )}
+    <Droppable droppableId={id}>
+      {(provided, snapshot) => {
+        return (
+          <div
+            {...provided.droppableProps}
+            ref={provided.innerRef}
+            className={style.card}
+            style={{
+              background: snapshot.isDraggingOver ? "lightblue" : "lightgrey",
+            }}
+          >
+            <div className={style.cardHeading}>
+              {showinput ? (
+                <span onClick={handlChangeName}>{title}</span>
+              ) : (
+                <input
+                  onBlur={handleBlur}
+                  onChange={(e) => setChangeName(e.target.value)}
+                  value={changeName}
+                  type="text"
+                />
+              )}
 
-        <span>
-          <MoreHorizIcon />
-        </span>
-      </div>
-      <div>
-        {TaskArr.map((ele, index) => {
-          return <Task task={ele} index={index} mainId={mainId} />;
-        })}
-      </div>
+              <span>
+                <MoreHorizIcon />
+              </span>
+            </div>
+            <div>
+              {TaskArr.map((ele, index) => {
+                return (
+                  // <Task task={ele} index={index} mainId={mainId} key={ele.id} />
+                  <Draggable key={ele.id} draggableId={ele.id} index={index}>
+                    {(provided, snapshot) => {
+                      return (
+                        <div
+                          ref={provided.innerRef}
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          style={{
+                            userSelect: "none",
+                            ...provided.draggableProps.style,
+                          }}
+                        >
+                          <Task
+                            task={ele}
+                            index={index}
+                            mainId={mainId}
+                            key={ele.id}
+                          />
+                        </div>
+                      );
+                    }}
+                  </Draggable>
+                );
+              })}
+            </div>
 
-      <div className={style.editableDiv}>
-        <Editable name={name} setName={setName} addList={addList} />
-      </div>
-    </div>
+            <div className={style.editableDiv}>
+              <Editable name={name} setName={setName} addList={addList} />
+            </div>
+          </div>
+        );
+      }}
+    </Droppable>
   );
 }
 
