@@ -9,6 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { Droppable } from "react-beautiful-dnd";
+import { v4 as uuidv4 } from "uuid";
 function Card(props) {
   const { id, title, date, task } = props.card;
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -34,7 +35,7 @@ function Card(props) {
         const obj = { ...ele };
         const taskarr = [...obj.task];
         taskarr.push({
-          id: String(taskarr.length + 1),
+          id: uuidv4(),
           title: name,
           date: "today",
           Comment: [],

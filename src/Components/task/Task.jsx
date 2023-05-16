@@ -3,12 +3,12 @@ import style from "./Task.module.css";
 import ModeEditOutlinedIcon from "@mui/icons-material/ModeEditOutlined";
 import { useNavigate } from "react-router-dom";
 import { useRecoilState } from "recoil";
-import { taskDetails } from "../../recoil/atoms/Atoms";
+import CardItem, { taskDetails } from "../../recoil/atoms/Atoms";
 import { AiFillDelete } from "react-icons/ai";
 import { Draggable } from "react-beautiful-dnd";
-function Task({ task, mainId, cardArray, setCardArray }) {
+function Task({ task, mainId }) {
   const [taskDetail, setTaskDetail] = useRecoilState(taskDetails);
-
+  const [cardArray, setCardArray] = useRecoilState(CardItem);
   const { title, id } = task;
 
   const [visibility, setVisibility] = useState(false);

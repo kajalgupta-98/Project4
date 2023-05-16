@@ -5,6 +5,7 @@ import AddList from "../../Components/addList/AddList";
 import CardItem from "../../recoil/atoms/Atoms";
 import { useRecoilState } from "recoil";
 import { DragDropContext } from "react-beautiful-dnd";
+import { v4 as uuidv4 } from "uuid";
 function Board() {
   const [cardAtom, setCardAtom] = useRecoilState(CardItem);
   const [listTitle, setListTitle] = React.useState("");
@@ -14,7 +15,7 @@ function Board() {
       setCardAtom([
         ...cardAtom,
         {
-          id: String(cardAtom.length + 1),
+          id: uuidv4(),
           title: `${listTitle}`,
           date: new Date(),
           task: [],
