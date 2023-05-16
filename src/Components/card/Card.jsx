@@ -8,6 +8,8 @@ import CardItem from "../../recoil/atoms/Atoms";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { useDrop } from "react-dnd";
+
 function Card(props) {
   const { id, title, date, task } = props.card;
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -24,6 +26,12 @@ function Card(props) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const [{ isOver }, addTaskRef] = useDrop({
+    accept: "task",
+    collect: (monitor) => ({ isOver: !!monitor.isOver() }),
+  });
+
 
   const addList = () => {
     if (!name) {
@@ -52,8 +60,16 @@ function Card(props) {
 
     setCardArray(filterArr);
   };
-
- 
+  const moveTask = () => {
+    console.log("item");
+    alert("Dropped")
+  };
+  const removeTask = (index) => {
+    // alert("dragged")
+    TaskArr.filter((ele,ind)=> ind!==index)
+    console.log(TaskArr)
+    console.log(index)
+  };
   return (
     <div className={style.card}>
       <div className={style.cardHeading}>
@@ -88,10 +104,11 @@ function Card(props) {
           </MenuItem>
         </Menu>
       </div>
-      <div>
+      <div ref={addTaskRef}   onDrop={moveTask} 
+>
         {TaskArr.map((ele, index) => {
 
-          return <Task task={ele} index={index} mainId={mainId} cardArray={cardArray} setCardArray={setCardArray}/>;
+          return <Task task={ele} index={index} mainId={mainId} cardArray={cardArray} setCardArray={setCardArray} removeTask={removeTask} moveTask={moveTask}/>;
         })}
       </div>
 
