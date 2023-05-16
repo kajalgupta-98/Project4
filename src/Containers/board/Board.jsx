@@ -4,6 +4,7 @@ import style from "./Board.module.css";
 import AddList from "../../Components/addList/AddList";
 import CardItem from "../../recoil/atoms/Atoms";
 import { useRecoilState } from "recoil";
+import { DragDropContext } from 'react-beautiful-dnd';
 
 function Board() {
   const [cardAtom, setCardAtom] = useRecoilState(CardItem);
@@ -26,6 +27,7 @@ function Board() {
   }
 
   return (
+    <DragDropContext>
     <div className={style.board_outer}>
       <div className={style.board}>
         {cardAtom.map((card,index)=>{
@@ -39,6 +41,7 @@ function Board() {
         />
       </div>
     </div>
+    </DragDropContext>
   );
 }
 

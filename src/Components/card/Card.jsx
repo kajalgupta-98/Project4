@@ -11,6 +11,8 @@ function Card(props) {
   const index = props.index;
   const [name, setName] = useState("");
   const [cardArray, setCardArray] = useRecoilState(CardItem);
+  const [showinput, setShowinput] = useState(true);
+  const [changeName, setChangeName] = useState("");
   const TaskArr = cardArray[index].task || [];
   const mainId = cardArray[index].id;
   const addList = () => {
@@ -41,10 +43,40 @@ function Card(props) {
     setCardArray(filterArr);
   };
 
+  const handlChangeName = () => {
+    setShowinput(false);
+    setChangeName(cardArray[index].title);
+  };
+
+  const handleBlur = () => {
+    const filterArr = cardArray.map((ele, i) => {
+      if (i === index) {
+        const obj = { ...ele };
+
+        obj.title = changeName;
+
+        return obj;
+      }
+      return ele;
+    });
+    setCardArray(filterArr);
+    setShowinput(true);
+  };
+
   return (
     <div className={style.card}>
       <div className={style.cardHeading}>
-        <span>{title}</span>
+        {showinput ? (
+          <span onClick={handlChangeName}>{title}</span>
+        ) : (
+          <input
+            onBlur={handleBlur}
+            onChange={(e) => setChangeName(e.target.value)}
+            value={changeName}
+            type="text"
+          />
+        )}
+
         <span>
           <MoreHorizIcon />
         </span>
