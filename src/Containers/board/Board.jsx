@@ -45,6 +45,8 @@ function Board() {
       });
 
       setCardAtom(newArr);
+    localStorage.setItem('data',JSON.stringify(newArr));
+
     } else {
       const [column] = cardAtom.filter((ele) => {
         if (ele.id === source.droppableId) {
@@ -65,6 +67,8 @@ function Board() {
       });
 
       setCardAtom(newfilterArr);
+    localStorage.setItem('data',JSON.stringify(newfilterArr));
+
     }
   };
 
@@ -79,6 +83,13 @@ function Board() {
           task: [],
         },
       ]);
+    localStorage.setItem('data',JSON.stringify([...cardAtom,{
+      id: uuidv4(),
+          title: `${listTitle}`,
+          date: new Date(),
+          task: [],
+    }]));
+
     }
     setListTitle("")
   }

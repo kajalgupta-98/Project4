@@ -55,6 +55,9 @@ function Card(props) {
     });
 
     setCardArray(filterArr);
+    localStorage.setItem('data',JSON.stringify(filterArr));
+    setName("")
+
   };
 
   const handlChangeName = () => {
@@ -74,6 +77,7 @@ function Card(props) {
       return ele;
     });
     setCardArray(filterArr);
+    localStorage.setItem('data',JSON.stringify(filterArr));
     setShowinput(true);
   };
 
@@ -128,6 +132,7 @@ function Card(props) {
                     return ele.id !== mainId;
                   });
                   setCardArray(newList);
+                  localStorage.setItem('data',JSON.stringify(newList))
                 }}
               >
                 Delete
