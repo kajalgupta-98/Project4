@@ -50,6 +50,8 @@ function Activity() {
       return ele;
     })
    setcardArr(newMainArr)
+   localStorage.setItem('data',JSON.stringify(newMainArr));
+
    setEditer(true)
   };
 

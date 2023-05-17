@@ -31,6 +31,7 @@ function Editable({ name, setName, addList }) {
         type="text"
         placeholder="Enter a title for this card...."
         onChange={(e) => setName(e.target.value)}
+        value={name}
       />
       <div className={style.inputBtn}>
         <div className={style.btnAdd}>

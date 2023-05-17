@@ -2,7 +2,7 @@ import { atom } from "recoil";
 
 const CardItem = atom({
   key: "card Array",
-  default: [],
+  default:JSON.parse(localStorage.getItem("data"))|| [],
 });
 
 export const taskDetails = atom({

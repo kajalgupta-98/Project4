@@ -30,6 +30,8 @@ function Title() {
     return ele
   })
   setData(updatedData)
+  localStorage.setItem('data',JSON.stringify(updatedData));
+
   }
   
   const mainIndex = data.findIndex((ele) => ele.id === cardId.mainId);
