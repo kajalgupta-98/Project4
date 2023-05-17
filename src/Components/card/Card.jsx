@@ -82,7 +82,18 @@ function Card(props) {
   };
 
   return (
-    <Droppable droppableId={id}>
+    <Draggable  draggableId={id}
+    index={index}
+    key={id}>
+      {(provided)=>{
+        return(
+          <div
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          
+          >
+                <Droppable droppableId={id}>
       {(provided, snapshot) => {
         return (
           <div
@@ -175,6 +186,13 @@ function Card(props) {
         );
       }}
     </Droppable>
+
+          </div>
+        )
+      }}
+
+
+    </Draggable>
   );
 }
 

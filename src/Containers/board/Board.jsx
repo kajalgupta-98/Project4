@@ -4,7 +4,7 @@ import style from "./Board.module.css";
 import AddList from "../../Components/addList/AddList";
 import CardItem from "../../recoil/atoms/Atoms";
 import { useRecoilState } from "recoil";
-import { DragDropContext } from "react-beautiful-dnd";
+import { DragDropContext, Droppable } from "react-beautiful-dnd";
 import { v4 as uuidv4 } from "uuid";
 function Board() {
   const [cardAtom, setCardAtom] = useRecoilState(CardItem);
@@ -13,6 +13,17 @@ function Board() {
   const onDragEnd = (result) => {
     if (!result.destination) return;
     const { source, destination } = result;
+
+    if (result.type == "COLUMN") {
+        const newArr = [...cardAtom];
+       const [removed]= newArr.splice(source.index,1);
+       console.log(removed)
+       newArr.splice(destination.index,0,removed);
+       setCardAtom(newArr)
+       localStorage.setItem('data',JSON.stringify(newArr))
+       return;
+    }
+
 
     if (source.droppableId !== destination.droppableId) {
       const sourceColumn = cardAtom.filter((ele) => {
@@ -45,8 +56,7 @@ function Board() {
       });
 
       setCardAtom(newArr);
-    localStorage.setItem('data',JSON.stringify(newArr));
-
+      localStorage.setItem("data", JSON.stringify(newArr));
     } else {
       const [column] = cardAtom.filter((ele) => {
         if (ele.id === source.droppableId) {
@@ -67,8 +77,7 @@ function Board() {
       });
 
       setCardAtom(newfilterArr);
-    localStorage.setItem('data',JSON.stringify(newfilterArr));
-
+      localStorage.setItem("data", JSON.stringify(newfilterArr));
     }
   };
 
@@ -83,33 +92,57 @@ function Board() {
           task: [],
         },
       ]);
-    localStorage.setItem('data',JSON.stringify([...cardAtom,{
-      id: uuidv4(),
-          title: `${listTitle}`,
-          date: new Date(),
-          task: [],
-    }]));
-
+      localStorage.setItem(
+        "data",
+        JSON.stringify([
+          ...cardAtom,
+          {
+            id: uuidv4(),
+            title: `${listTitle}`,
+            date: new Date(),
+            task: [],
+          },
+        ])
+      );
     }
-    setListTitle("")
+    setListTitle("");
   }
 
   return (
     <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
-      <div className={style.board_outer}>
-        <div className={style.board}>
-          {/* {Object.entries(cardAtom).map((card, index) => {
-            return <Card card={card} index={index} key={card.id} />;
-          })} */}
-          {cardAtom.map((card, index) => {
-            console.log(card.id, "card id");
-            return <Card card={card} index={index} key={card.id} />;
-          })}
-          <AddList
-            handleAddList={handleAddList}
-            listTitle={listTitle}
-            setListTitle={setListTitle}
-          />
+      <div>
+        <div className={style.board_outer}>
+          <div className={style.board}>
+            <Droppable droppableId="board" type="COLUMN" direction="horizontal">
+              {(provided) => {
+                return (
+                  <div
+                    {...provided.droppableProps}
+                    ref={provided.innerRef}
+                    style={{
+                      display: "flex",
+                      gap: "20px",
+                      flexDirection: "row",
+                      alignItems: "flex-start",
+                      border:"1px solid red"
+                    }}
+                    className={style.dragCard}
+                  >
+                    {cardAtom.map((card, index) => {
+                      console.log(card.id, "card id");
+                      return <Card card={card} index={index} key={card.id} />;
+                    })}
+                  </div>
+                );
+              }}
+            </Droppable>
+
+            <AddList
+              handleAddList={handleAddList}
+              listTitle={listTitle}
+              setListTitle={setListTitle}
+            />
+          </div>
         </div>
       </div>
     </DragDropContext>
