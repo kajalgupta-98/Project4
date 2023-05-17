@@ -18,9 +18,10 @@ const Description = () => {
 
   function handleShowAddDescriptionBox() {
     setShowaddDescriptionBox(!showaddDescriptionBox);
+    setValue("")
   }
 
-  const addDiscription = () => {
+  const addDescription = () => {
     if (!value) {
       return;
     }
@@ -50,8 +51,12 @@ const Description = () => {
     localStorage.setItem('data',JSON.stringify(newMainArr));
 
     setShowaddDescriptionBox(false)
+    setValue("")
   };
-
+function handleEditDescription(){
+  setShowaddDescriptionBox(true)
+  setValue(cardArr[mainIndex].task[index].description)
+}
   return (
     <div className={style.descriptionConatiner}>
       <div className={style.header}>
@@ -62,6 +67,8 @@ const Description = () => {
             <AiOutlineInfoCircle />
           </p>
         )}
+        {!showaddDescriptionBox && (cardArr[mainIndex].task[index].description) ? 
+        <button className={style.editBtn} onClick={handleEditDescription}>Edit</button>: null}
       </div>
 
       <div className={style.content}>
@@ -69,10 +76,10 @@ const Description = () => {
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div>
               <textarea
-                placeholder="Enter disription here..."
-                style={{ paddingTop: "0.5rem", paddingLeft: "1rem" }}
+                placeholder="Enter desription here..."
+                // className={style.editorBox}
                 id=""
-                cols="68"
+                cols="62"
                 rows="4"
                 value={value}
                 onChange={(e) => setValue(e.target.value)}
@@ -81,7 +88,7 @@ const Description = () => {
 
             <div className={style.bottomSection}>
               <div className={style.btnContainer}>
-                <button className={style.saveBtn} onClick={addDiscription}>
+                <button className={style.saveBtn} onClick={addDescription}>
                   Save
                 </button>
                 <button
@@ -99,22 +106,26 @@ const Description = () => {
             </div>
           </div>
         ) : (
-          <div
+          !(cardArr[mainIndex].task[index].description) &&   <div
             className={style.editorBox}
             onClick={handleShowAddDescriptionBox}
           >
             Add a more detailed description
           </div>
+        
         )}
         
         
       
         
       </div>
+      <div className={style.description}>
       {
         !showaddDescriptionBox&& <p>{ cardArr[mainIndex].task[index].description}</p>
 
       }
+      </div>
+    
 
     </div>
   );
