@@ -45,6 +45,8 @@ function Board() {
       });
 
       setCardAtom(newArr);
+    localStorage.setItem('data',JSON.stringify(newArr));
+
     } else {
       const [column] = cardAtom.filter((ele) => {
         if (ele.id === source.droppableId) {
@@ -54,7 +56,7 @@ function Board() {
 
       const copiedItems = [...column.task];
       const [removed] = copiedItems.splice(source.index, 1);
-      console.log(removed);
+      // console.log(removed);
       copiedItems.splice(destination.index, 0, removed);
 
       const newfilterArr = cardAtom.map((ele) => {
@@ -65,6 +67,8 @@ function Board() {
       });
 
       setCardAtom(newfilterArr);
+    localStorage.setItem('data',JSON.stringify(newfilterArr));
+
     }
   };
 
@@ -79,6 +83,13 @@ function Board() {
           task: [],
         },
       ]);
+    localStorage.setItem('data',JSON.stringify([...cardAtom,{
+      id: uuidv4(),
+          title: `${listTitle}`,
+          date: new Date(),
+          task: [],
+    }]));
+
     }
     setListTitle("")
   }

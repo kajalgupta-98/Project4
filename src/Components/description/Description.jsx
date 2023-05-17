@@ -48,6 +48,8 @@ const Description = () => {
       return ele;
     });    
     setcardArr(newMainArr);
+    localStorage.setItem('data',JSON.stringify(newMainArr));
+
     setShowaddDescriptionBox(false)
     setValue("")
   };

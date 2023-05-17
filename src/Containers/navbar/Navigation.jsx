@@ -15,7 +15,7 @@ import { BsCircleHalf, BsTrello } from "react-icons/bs";
 import { CgMenuGridR } from "react-icons/cg";
 import { Button } from "@mui/material";
 import BasicMenu from "../../Components/selector/Selector";
-
+import Tooltip from "@mui/material/Tooltip";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -56,7 +56,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Navbar() {
+export default function Navbar({ changeTheme }) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ padding: 0 }}>
@@ -152,11 +152,17 @@ export default function Navbar() {
                 <HelpOutlineIcon />
               </Badge>
             </IconButton>
-            <IconButton aria-label="show 17 new notifications" color="inherit">
-              <Badge badgeContent={0} color="error">
-                <BsCircleHalf size={20} />
-              </Badge>
-            </IconButton>
+            <Tooltip title="Change Theme">
+              <IconButton
+                aria-label="show 17 new notifications"
+                color="inherit"
+                onClick={changeTheme}
+              >
+                <Badge badgeContent={0} color="error">
+                  <BsCircleHalf size={20} />
+                </Badge>
+              </IconButton>
+            </Tooltip>
             <IconButton
               size="large"
               edge="end"
