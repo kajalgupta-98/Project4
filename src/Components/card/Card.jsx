@@ -4,13 +4,12 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Editable from "../editable/Editable";
 import Task from "../task/Task";
 import { useRecoilState } from "recoil";
-import CardItem from "../../recoil/atoms/Atoms";
+import CardItem  from "../../recoil/atoms/Atoms";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import { v4 as uuidv4 } from "uuid";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-
 function Card(props) {
   const { id, title, date, task } = props.card;
   const [anchorEl, setAnchorEl] = React.useState(null);

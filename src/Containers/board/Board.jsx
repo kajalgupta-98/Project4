@@ -54,7 +54,7 @@ function Board() {
 
       const copiedItems = [...column.task];
       const [removed] = copiedItems.splice(source.index, 1);
-      console.log(removed);
+      // console.log(removed);
       copiedItems.splice(destination.index, 0, removed);
 
       const newfilterArr = cardAtom.map((ele) => {

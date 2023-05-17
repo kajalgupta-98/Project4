@@ -1,5 +1,8 @@
 import { atom } from "recoil";
-
+import first from "../../utils/first.jpeg";
+import clone from "../../utils/clone.jpg";
+import nature from "../../utils/nature.jpg";
+import dreamy from "../../utils/dreamy.jpg";
 const CardItem = atom({
   key: "card Array",
   default: [],
@@ -10,4 +13,8 @@ export const taskDetails = atom({
   default: {},
 });
 
+export const theme = atom({
+  key: "theme",
+  default: [first, clone, nature, dreamy],
+});
 export default CardItem;
