@@ -21,14 +21,30 @@
 
 .editableDiv{
     display: flex;
-    align-items: center;
-    gap: 0.2rem;
+    align-items: self-start;
+    /* gap: 0.2rem; */
 
 }
 .showBtn{
     padding: 0.5rem 1rem;
     border: none;
-    color: grey;
+    border-radius: 4px;
+    color: rgb(95, 93, 93);
+    cursor: pointer;
+    width: 7rem;
+}
+.showBtn:hover{
+background-color: rgb(217, 221, 223);
+}
+.headingUsername{
+    padding: 0.5rem;
+    border-radius: 50%;
+    background-color: green;
+    color: white;
+    font-size: 0.8rem;
+    margin-left: -0.5rem;
+    margin-right: 0.5rem;
+    display: flex;
 }
 
 .userProfile{
@@ -40,28 +56,25 @@
     margin-left: -0.5rem;
     margin-right: 0.5rem;
     display: flex;
-    position: fixed;
-    top: 24rem;
 }
 
 .editableDiv {
-   /* cursor: pointer;
-    width: 94%;
-    background-color: rgb(251, 248, 248);
-    height: 2rem;
+  
   display: flex;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   align-items: center;
-  padding-left: 1rem; */
   margin-top: 0.5rem;
+}
+.userProfileDiv{
+    height: auto;
 }
 .editedArea{
   
     width: 100%;
     padding: 0.5rem 0;
     padding-left: 1rem; 
-    margin-left: 2.5rem;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 1px 2px;
    
     
 }
@@ -71,7 +84,7 @@
 
 .saveBtnDiv{
     display: flex;
-    margin-left: 2.5rem;
+    margin-left: 0.5rem;
     margin-top: 0.5rem;
     align-items: center;
     gap: 0.7rem;
@@ -81,9 +94,15 @@
     background-color:#0c66E4;
     border: none;
     border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+.saveBtnDiv button:hover{
+    background-color: #0e53b3;
+    box-shadow: rgba(14, 13, 13, 0.2) 2px 10px 18px 0px;
+
 
 }
-
 .saveBtnDiv input{
   width: 1.2rem;
   height: 1.4rem;
@@ -91,4 +110,27 @@
 .tetContainDiv{
     width: 100%;
 }
-
+.tetContainDiv textArea{
+    border: 2px solid black;
+    border-radius: 7px;
+    padding: 0.5rem; 
+    margin-left: 0.5rem;
+    outline-color: #0c66E4;
+    resize: none;
+    margin-bottom: 0.5rem;
+    height: 5rem;
+    width: 100%;
+}
+.activityBox{
+    border-radius: 6px;
+    width: 30.2rem;
+    padding: 0.5rem 0;
+    padding-left: 1rem; 
+    box-shadow: rgba(63, 62, 62, 0.2) 1px 2px;
+}
+.comment{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 1rem;
+}

@@ -4,13 +4,12 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Editable from "../editable/Editable";
 import Task from "../task/Task";
 import { useRecoilState } from "recoil";
-import CardItem from "../../recoil/atoms/Atoms";
+import CardItem  from "../../recoil/atoms/Atoms";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import { v4 as uuidv4 } from "uuid";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-
 function Card(props) {
   const { id, title, date, task } = props.card;
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -22,6 +21,7 @@ function Card(props) {
   const TaskArr = cardArray[index].task || [];
   const mainId = cardArray[index].id;
   const open = Boolean(anchorEl);
+  
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -55,6 +55,9 @@ function Card(props) {
     });
 
     setCardArray(filterArr);
+    localStorage.setItem('data',JSON.stringify(filterArr));
+    setName("")
+
   };
 
   const handlChangeName = () => {
@@ -74,11 +77,23 @@ function Card(props) {
       return ele;
     });
     setCardArray(filterArr);
+    localStorage.setItem('data',JSON.stringify(filterArr));
     setShowinput(true);
   };
 
   return (
-    <Droppable droppableId={id}>
+    <Draggable  draggableId={id}
+    index={index}
+    key={id}>
+      {(provided)=>{
+        return(
+          <div
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          
+          >
+                <Droppable droppableId={id}>
       {(provided, snapshot) => {
         return (
           <div
@@ -101,7 +116,7 @@ function Card(props) {
                 />
               )}
 
-              <span>
+              <span className={style.iconSpan}>
                 <IconButton onClick={handleClick}>
                   <MoreHorizIcon />
                 </IconButton>
@@ -128,6 +143,7 @@ function Card(props) {
                     return ele.id !== mainId;
                   });
                   setCardArray(newList);
+                  localStorage.setItem('data',JSON.stringify(newList))
                 }}
               >
                 Delete
@@ -170,6 +186,13 @@ function Card(props) {
         );
       }}
     </Droppable>
+
+          </div>
+        )
+      }}
+
+
+    </Draggable>
   );
 }
 

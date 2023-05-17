@@ -1,18 +1,25 @@
-.board_outer{
-   width: 100%;
-   overflow-x: auto;
+.board_outer {
+  width: 100%;
+  overflow-x: auto;
   flex: 1;
   min-height: 100%;
 }
 
+.board {
+  min-width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+  max-height: fit-content;
+}
+.board_outer::-webkit-scrollbar{
+  display: none;
+}
 
-.board{
-    min-width:fit-content;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    gap:1rem;
-    max-height: fit-content;
-   
-    
+.dragCard {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+  align-items: flex-start;
 }

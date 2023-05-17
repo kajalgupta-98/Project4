@@ -13,6 +13,7 @@ function Activity() {
   const mainIndex = cardArr.findIndex((ele) => ele.id === cardID.mainId);
   const taskArr = [...cardArr[mainIndex].task];
   const index = taskArr.findIndex((ele) => ele.id === cardID.id);
+  const [showDetails, setShowDetails] = useState(false)
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -50,9 +51,15 @@ function Activity() {
       return ele;
     })
    setcardArr(newMainArr)
+   localStorage.setItem('data',JSON.stringify(newMainArr));
+
    setEditer(true)
+   setValue("")
   };
 
+  const handleShowDetails = ()=>{
+    setShowDetails(!showDetails)
+  }
   return (
     <div className={style.mainContainer}>
       <div className={style.container}>
@@ -60,10 +67,10 @@ function Activity() {
           <RxActivityLog />
           <h3>Activity</h3>
         </div>
-        <button className={style.showBtn}>Show details</button>
+        <button className={style.showBtn} onClick={handleShowDetails}>{showDetails?'Hide details':'Show details'}</button>
       </div>
-      <div className={style.editableDiv}>
-        <h3 className={style.userProfile}>PR</h3>
+      <div className={style.editableDiv} style={{alignItems: !editer? 'self-start':'center'}}>
+        <h3 className={style.headingUsername}>PR</h3>
         {editer ? (
           <span className={style.editedArea} onClick={handleClick}>
             Write a comment...
@@ -71,12 +78,12 @@ function Activity() {
         ) : (
           <div className={style.tetContainDiv}>
             <textarea
-              style={{
-                marginLeft: "2rem",
-                paddingLeft: "1rem",
-                paddingTop: "0.5rem",
-              }}
-              cols="66.6"
+              // style={{
+              //   marginLeft: "2rem",
+              //   paddingLeft: "1rem",
+              //   paddingTop: "0.5rem",
+              // }}
+              cols="58"
               rows="4"
               value={value}
               onChange={handleChange}
@@ -84,7 +91,7 @@ function Activity() {
             />
 
             <div className={style.saveBtnDiv}>
-              <button onClick={handleAddComments}>save</button>
+              <button onClick={handleAddComments}>Save</button>
               <input type="checkbox" />
               <p>Watch</p>
             </div>
@@ -92,12 +99,24 @@ function Activity() {
         )}
         
       </div>
-      {
-        // console.log(taskArr[index].Comment)
+      <div className={style.comments}>
+      {showDetails?
         taskArr[index].Comment.map((ele)=>{
-          return <p>{ele}</p>
+          return <div className={style.comment}>
+           <h3 className={style.userProfile}>PR</h3>
+              <span style={{display:'flex', flexDirection:'row', gap:"1rem"}}>  
+                <span className={style.activityBox}>
+                <p style={{fontSize:"16px"}}>{ele}</p>
+          </span>
+              </span>
+          </div>
+         
         })
+        :
+        ''
       }
+      </div>
+     
 
     </div>
   );

@@ -21,7 +21,7 @@ function Task({ task, mainId }) {
       mainId: mainId,
       id: id,
     });
-    navigate(`/details/${mainId + "_" + id}`);
+    navigate(`/details/${id}`);
   };
 
   const deleteTask = () => {
@@ -39,6 +39,8 @@ function Task({ task, mainId }) {
     });
 
     setCardArray(filterArr);
+    localStorage.setItem('data',JSON.stringify(filterArr));
+
   };
 
   return (

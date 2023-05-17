@@ -56,8 +56,12 @@
 }
 
 .btnDiv input {
-  width: 96%;
-  min-height: 3rem;
+  width: 16rem;
+  min-height: 4rem;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  box-shadow: 0 1px 1px rgb(88, 87, 87);
   border-radius: 0.3rem;
   padding-left: 0.3rem;
   margin-left: 0.2rem;
