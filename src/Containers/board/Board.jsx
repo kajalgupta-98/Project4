@@ -119,13 +119,6 @@ function Board() {
                   <div
                     {...provided.droppableProps}
                     ref={provided.innerRef}
-                    style={{
-                      display: "flex",
-                      gap: "20px",
-                      flexDirection: "row",
-                      alignItems: "flex-start",
-                      border:"1px solid red"
-                    }}
                     className={style.dragCard}
                   >
                     {cardAtom.map((card, index) => {

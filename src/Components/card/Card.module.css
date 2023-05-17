@@ -1,23 +1,58 @@
-.card {
-  min-width: 17rem;
-  /* max-height: 43rem; */
-  overflow-x: auto;
-  margin-top: 1rem;
-  border-radius: 8px;
-  padding: 5px;
-  background-color: #f7f7f7;
-  max-height: fit-content;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif&display=swap');
+.card{
+   min-width: 16rem;
+   max-height: 90vh;
+   overflow-x: auto;
+   margin-top: 1rem;
+   border-radius: 8px;
+   padding: 5px;
+   background-color: #f7f7f7;
+   position: relative;
+   padding-top: 0;
 }
 
-.cardHeading {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 5px;
+.card::-webkit-scrollbar{
+    display: none;
 }
 
-.editableDiv {
-  margin-top: 0.5rem;
-  width: 96%;
-  margin-left: 0.2rem;
+
+.cardHeading{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        padding: 0 5px;
+        background-color: lightgrey;
+        font-size: 20px;
+        /* font-weight: bold; */
+        font-family: 'Noto Serif', serif;
+        padding-top: 0.4rem;
 }
+.cardHeading span{
+    max-width: 13rem;
+    word-wrap: break-word;
+}
+
+.iconSpan{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.cardHeading input{
+    height: 2rem;
+    width: 90%;
+    border: 2px solid rgb(15, 118, 214);
+    outline: none;
+    border-radius: 5px;
+    padding-left: 5px;
+}
+.editableDiv{
+
+    
+    margin-top: 0.5rem;
+    width: 96%;
+    margin-left: 0.2rem;
+
+    
+}   

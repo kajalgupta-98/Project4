@@ -13,6 +13,7 @@ function Activity() {
   const mainIndex = cardArr.findIndex((ele) => ele.id === cardID.mainId);
   const taskArr = [...cardArr[mainIndex].task];
   const index = taskArr.findIndex((ele) => ele.id === cardID.id);
+  const [showDetails, setShowDetails] = useState(false)
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -56,6 +57,9 @@ function Activity() {
    setValue("")
   };
 
+  const handleShowDetails = ()=>{
+    setShowDetails(!showDetails)
+  }
   return (
     <div className={style.mainContainer}>
       <div className={style.container}>
@@ -63,10 +67,10 @@ function Activity() {
           <RxActivityLog />
           <h3>Activity</h3>
         </div>
-        <button className={style.showBtn}>Show details</button>
+        <button className={style.showBtn} onClick={handleShowDetails}>{showDetails?'Hide details':'Show details'}</button>
       </div>
-      <div className={style.editableDiv}>
-        <h3 className={style.userProfile}>PR</h3>
+      <div className={style.editableDiv} style={{alignItems: !editer? 'self-start':'center'}}>
+        <h3 className={style.headingUsername}>PR</h3>
         {editer ? (
           <span className={style.editedArea} onClick={handleClick}>
             Write a comment...
@@ -96,19 +100,20 @@ function Activity() {
         
       </div>
       <div className={style.comments}>
-      {
+      {showDetails?
         taskArr[index].Comment.map((ele)=>{
           return <div className={style.comment}>
            <h3 className={style.userProfile}>PR</h3>
-           {/* <div style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"flex-start"}}>         */}
               <span style={{display:'flex', flexDirection:'row', gap:"1rem"}}>  
-                <p style={{fontSize:"18px"}}>{ele}</p> 
-                <p style={{fontSize:"13px"}}>just now</p>
+                <span className={style.activityBox}>
+                <p style={{fontSize:"16px"}}>{ele}</p>
+          </span>
               </span>
-           {/* </div> */}
           </div>
          
         })
+        :
+        ''
       }
       </div>
      
