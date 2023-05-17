@@ -50,7 +50,7 @@ function Title() {
           onBlur={addTask}
           className={style.title_box}
         />
-        <span>in list {data[mainIndex].title}</span>
+        <span>in list <u>{data[mainIndex].title}</u></span>
       </div>
     </div>
   );

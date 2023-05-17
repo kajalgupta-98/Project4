@@ -4,9 +4,9 @@
     padding: 1rem;
     /* border: 1px solid black; */
     gap: 1rem;
-    min-height: 10rem;
+    /* min-height: 10rem; */
     max-height:fit-content;
-  height: auto;
+    height: auto;
   }
   .header {
     display: flex;
@@ -31,14 +31,26 @@
     width: 100%;
 
   }
+  .content textArea{
+    border: 2px solid black;
+    border-radius: 7px;
+    padding: 0.5rem; 
+    margin-left: 2.5rem;
+    outline-color: #0c66E4;
+    resize: none;
+  }
   .editorBox {
     width: 100%;
     padding: 0.5rem 0;
     padding-left: 1rem; 
-    margin-left: 2.5rem;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-left: 2rem;
+    border-radius: 5px;
+    box-shadow: rgba(22, 22, 22, 0.2) 2px 2px 8px 0px;
+    cursor: pointer;
   }
-
+.editorBox:hover{
+  background-color: rgb(216, 208, 208);
+}
   .bottomSection {
     margin-left: 2.8rem;
     margin-top: 1rem;
@@ -58,6 +70,7 @@
     cursor: pointer;
   }
   .btnContainer {
+    /* margin-left: 1rem; */
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -81,7 +94,24 @@
     width: 4rem;
     border: none;
     border-radius: 5px;
-    background-color: rgb(240, 246, 248);
+    background-color: rgb(168, 170, 170);
     cursor: pointer;
   }
-  
+  .description{
+    margin-left: 2rem;
+    height: auto;
+    font-size: 1rem;
+  }
+
+  .editBtn{
+    border: none;
+    height: 1.2rem;
+    width: 3rem;
+    border-radius: 4px;
+    background-color: rgb(233, 233, 233);
+    cursor: pointer;
+  }
+  .editBtn:hover{
+    background-color: rgb(161, 161, 161);
+
+  }

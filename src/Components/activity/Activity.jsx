@@ -51,6 +51,7 @@ function Activity() {
     })
    setcardArr(newMainArr)
    setEditer(true)
+   setValue("")
   };
 
   return (
@@ -71,12 +72,12 @@ function Activity() {
         ) : (
           <div className={style.tetContainDiv}>
             <textarea
-              style={{
-                marginLeft: "2rem",
-                paddingLeft: "1rem",
-                paddingTop: "0.5rem",
-              }}
-              cols="66.6"
+              // style={{
+              //   marginLeft: "2rem",
+              //   paddingLeft: "1rem",
+              //   paddingTop: "0.5rem",
+              // }}
+              cols="58"
               rows="4"
               value={value}
               onChange={handleChange}
@@ -84,7 +85,7 @@ function Activity() {
             />
 
             <div className={style.saveBtnDiv}>
-              <button onClick={handleAddComments}>save</button>
+              <button onClick={handleAddComments}>Save</button>
               <input type="checkbox" />
               <p>Watch</p>
             </div>
@@ -92,12 +93,23 @@ function Activity() {
         )}
         
       </div>
+      <div className={style.comments}>
       {
-        // console.log(taskArr[index].Comment)
         taskArr[index].Comment.map((ele)=>{
-          return <p>{ele}</p>
+          return <div className={style.comment}>
+           <h3 className={style.userProfile}>PR</h3>
+           {/* <div style={{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"flex-start"}}>         */}
+              <span style={{display:'flex', flexDirection:'row', gap:"1rem"}}>  
+                <p style={{fontSize:"18px"}}>{ele}</p> 
+                <p style={{fontSize:"13px"}}>just now</p>
+              </span>
+           {/* </div> */}
+          </div>
+         
         })
       }
+      </div>
+     
 
     </div>
   );
