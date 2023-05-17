@@ -133,7 +133,7 @@ function Card(props) {
                 Delete
               </MenuItem>
             </Menu>
-            <div>
+            <div className={style.taskDiv}>
               {TaskArr.map((ele, index) => {
                 return (
                   // <Task task={ele} index={index} mainId={mainId} key={ele.id} />

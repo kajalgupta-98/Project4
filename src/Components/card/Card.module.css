@@ -1,14 +1,17 @@
 .card{
    min-width: 17rem;
-   /* max-height: 43rem; */
+   max-height: 90vh;
    overflow-x: auto;
    margin-top: 1rem;
    border-radius: 8px;
    padding: 5px;
    background-color: #f7f7f7;
-   max-height: fit-content;
- 
+   position: relative;
+   padding-top: 0;
+}
 
+.card::-webkit-scrollbar{
+    display: none;
 }
 
 
@@ -16,8 +19,14 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        position: sticky;
+        top: 0;
         padding: 0 5px;
+        background-color: lightgrey;
+        font-size: 25px;
+        font-weight: bold;
 }
+
 
 .editableDiv{
 
