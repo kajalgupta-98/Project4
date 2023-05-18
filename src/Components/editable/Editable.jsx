@@ -7,7 +7,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useRecoilValue } from "recoil";
 import { darkMode } from "../../recoil/atoms/Atoms";
 
-function Editable({ name, setName, addList, errorText }) {
+function Editable({ name, setName, addList, errorText , setErrorText}) {
   const darkModeOn = useRecoilValue(darkMode)
   const [showBtn, setShowBtn] = useState(true);
   const handleClick = () => {
@@ -16,6 +16,7 @@ function Editable({ name, setName, addList, errorText }) {
 
   const handleClose = () => {
     setShowBtn(!showBtn);
+    setErrorText("")
   };
 
   const dislay = showBtn ? (

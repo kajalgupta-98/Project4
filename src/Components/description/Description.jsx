@@ -109,7 +109,6 @@ function handleEditDescription(){
         ) : (
           !(cardArr[mainIndex].task[index].description) &&   <div
             className={style.editorBox}
-            // style={darkModeOn && {}}
             onClick={handleShowAddDescriptionBox}
           >
             Add a more detailed description
