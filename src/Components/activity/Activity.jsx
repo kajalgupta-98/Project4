@@ -15,6 +15,7 @@ function Activity() {
   const taskArr = [...cardArr[mainIndex].task];
   const index = taskArr.findIndex((ele) => ele.id === cardID.id);
   const [showDetails, setShowDetails] = useState(false)
+  const [errorText, setErrorText] =useState("")
 
   const handleChange = (e) => {
     setValue(e.target.value);
@@ -27,6 +28,7 @@ function Activity() {
 
   const handleAddComments = () => {
     if (!value) {
+      setErrorText("Enter something")
       return;
     }
 
@@ -73,20 +75,20 @@ function Activity() {
       <div className={style.editableDiv} style={{alignItems: !editer? 'self-start':'center'}}>
         <h3 className={style.headingUsername}>PR</h3>
         {editer ? (
-          <span className={`${style.editedArea} ${darkModeOn && style.dark }`} onClick={handleClick}>
+          <span className={style.editedArea} onClick={handleClick}>
             Write a comment...
           </span>
         ) : (
           <div className={style.tetContainDiv}>
             <textarea
-            style={darkModeOn && {backgroundColor:"transparent" , color:"white", borderColor:"white"}}
+            style={darkModeOn ? {backgroundColor:"transparent" , color:"white", borderColor:"white"}: null}
               cols="58"
               rows="4"
               value={value}
               onChange={handleChange}
               placeholder="Enter Comments here...."
             />
-
+            {errorText && <span style={{color:"red"}}>{errorText}</span>}
             <div className={style.saveBtnDiv}>
               <button onClick={handleAddComments}>Save</button>
               <input type="checkbox" />
