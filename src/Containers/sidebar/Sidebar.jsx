@@ -73,23 +73,6 @@ function Sidebar({collapsed, setCollapsed, handleCollapse}) {
         <ExpandMoreIcon sx={{ fontSize: "1.2rem" }} />
       </div>
 
-      {/* <h4 className={style.sideBarOptions}>WorkSpace Views</h4>
-
-      <div className={style.sideBarOptions}>
-        <div className={style.optionInner}>
-          <TableChartOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-          <em> Table</em>
-        </div>
-        <MoreHorizOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-      </div>
-
-      <div className={style.sideBarOptions}>
-        <div className={style.optionInner}>
-          <CalendarMonthOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-          <em> Calendar</em>
-        </div>
-        <MoreHorizOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-      </div> */}
 
       <div className={style.sideBarOptions}>
         <h4>Your Boards</h4>

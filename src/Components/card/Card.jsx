@@ -103,7 +103,7 @@ function Card(props) {
           <div
             {...provided.droppableProps}
             ref={provided.innerRef}
-            className={`${style.card} ${darkModeOn? style.dark : null}`}
+            className={`${style.card} ${darkModeOn? style.dark : ""}`}
             style={{
               background: snapshot.isDraggingOver ? "lightblue" : "",
             }}

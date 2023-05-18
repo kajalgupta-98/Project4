@@ -62,7 +62,7 @@ export default function Navbar({ changeTheme }) {
             component="div"
             sx={{ display: { xs: "none", sm: "block" }, fontWeight: "bold" }}
           >
-            <BsTrello style={{ marginRight: "0.5rem", marginTop: "0.5rem" }} />
+            <BsTrello style={{ marginRight:"0.5rem", marginTop:"0.5rem" }} />
             Trello
           </Typography>
           <Box
