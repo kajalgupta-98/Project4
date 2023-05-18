@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { RxActivityLog } from "react-icons/rx";
 import style from "./Activity.module.css";
-import CardItem from "../../recoil/atoms/Atoms";
+import CardItem, { darkMode } from "../../recoil/atoms/Atoms";
 import { taskDetails } from "../../recoil/atoms/Atoms";
 import { useRecoilState, useRecoilValue } from "recoil";
 
 function Activity() {
+  const darkModeOn = useRecoilValue(darkMode)
   const [editer, setEditer] = useState(true);
   const [value, setValue] = useState("");
   const [cardArr, setcardArr] = useRecoilState(CardItem);
@@ -72,17 +73,13 @@ function Activity() {
       <div className={style.editableDiv} style={{alignItems: !editer? 'self-start':'center'}}>
         <h3 className={style.headingUsername}>PR</h3>
         {editer ? (
-          <span className={style.editedArea} onClick={handleClick}>
+          <span className={`${style.editedArea} ${darkModeOn && style.dark }`} onClick={handleClick}>
             Write a comment...
           </span>
         ) : (
           <div className={style.tetContainDiv}>
             <textarea
-              // style={{
-              //   marginLeft: "2rem",
-              //   paddingLeft: "1rem",
-              //   paddingTop: "0.5rem",
-              // }}
+            style={darkModeOn && {backgroundColor:"transparent" , color:"white", borderColor:"white"}}
               cols="58"
               rows="4"
               value={value}

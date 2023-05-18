@@ -18,4 +18,10 @@ export const theme = atom({
   key: "theme",
   default: [first, clone, MImage, gexupdate,Webb],
 });
+
+export const darkMode= atom({
+  key:"dark mode",
+  default:false
+})
+
 export default CardItem;

@@ -23,7 +23,10 @@
   margin: 0 0.2rem;
   padding: 0 1rem;
 }
+.buttonDiv.dark:hover{
+  background-color: rgb(129, 129, 129);
 
+}
 .moreIcons {
   /* border: 1px solid red; */
   padding: 0 0.4rem;
@@ -39,7 +42,10 @@
   background-color: rgb(230, 226, 226);
   cursor: pointer;
 }
+.moreIcons.dark:hover{
+  background-color: rgb(97, 96, 96);
 
+}
 .inputBtn {
   display: flex;
   gap: 20px;
@@ -53,8 +59,15 @@
   /* border: 1px solid red; */
   /* padding:  0 1rem; */
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
+.btnDiv.dark input{
+  background-color: transparent;
+  color: white;
+  box-shadow: 0 1px 1px  rgb(173, 173, 173);
 
+}
 .btnDiv input {
   width: 16rem;
   min-height: 4rem;

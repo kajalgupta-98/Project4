@@ -13,7 +13,10 @@
     gap: 1rem;
     justify-content: center;
 }
-
+.dark{
+    background-color: transparent;
+    color: white;
+}
 .title_box{
     width: 90%;
     border: none;

@@ -1,3 +1,4 @@
+
 import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -15,10 +16,16 @@ import { Button } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { useRecoilState } from "recoil";
+import { darkMode } from "../../recoil/atoms/Atoms";
 
 export default function Navbar({ changeTheme }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const [darkModeOn, setDarkModeOn] = useRecoilState(darkMode)
+    function changeMode(){
+      setDarkModeOn(!darkModeOn)
+    }
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -92,10 +99,11 @@ export default function Navbar({ changeTheme }) {
                 <HelpOutlineIcon />
               </Badge>
             </IconButton>
-            <Tooltip title="Change Theme">
+            <Tooltip title={darkModeOn? "Light mode" : "Dark mode"}>
               <IconButton
                 aria-label="show 17 new notifications"
                 color="inherit"
+                onClick={changeMode}
               >
                 <Badge badgeContent={0} color="error">
                   <BsCircleHalf size={20} />
