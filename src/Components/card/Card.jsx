@@ -117,7 +117,7 @@ function Card(props) {
                   onChange={(e) => setChangeName(e.target.value)}
                   value={changeName}
                   type="text"
-                  style={darkModeOn &&  {backgroundColor:"transparent", color:"white"}}
+                  style={darkModeOn ?  {backgroundColor:"transparent", color:"white"}: null}
                 />
               )}
 
@@ -187,7 +187,7 @@ function Card(props) {
             </div>
 
             <div className={style.editableDiv}>
-              <Editable name={name} setName={setName} addList={addList} errorText={errorText}/>
+              <Editable name={name} setName={setName} addList={addList} errorText={errorText} setErrorText={setErrorText}/>
             </div>
           </div>
         );
