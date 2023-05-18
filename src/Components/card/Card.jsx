@@ -3,14 +3,16 @@ import style from "./Card.module.css";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import Editable from "../editable/Editable";
 import Task from "../task/Task";
-import { useRecoilState } from "recoil";
-import CardItem  from "../../recoil/atoms/Atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import CardItem, { darkMode }  from "../../recoil/atoms/Atoms";
 import { Draggable, Droppable } from "react-beautiful-dnd";
 import { v4 as uuidv4 } from "uuid";
 import IconButton from "@mui/material/IconButton";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+
 function Card(props) {
+  const darkModeOn = useRecoilValue(darkMode)
   const { id, title, date, task } = props.card;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const index = props.index;
@@ -18,6 +20,7 @@ function Card(props) {
   const [cardArray, setCardArray] = useRecoilState(CardItem);
   const [showinput, setShowinput] = useState(true);
   const [changeName, setChangeName] = useState("");
+  const [errorText, setErrorText] = useState("")
   const TaskArr = cardArray[index].task || [];
   const mainId = cardArray[index].id;
   const open = Boolean(anchorEl);
@@ -31,6 +34,7 @@ function Card(props) {
 
   const addList = () => {
     if (!name) {
+      setErrorText("enter the title for this card")
       return;
     }
 
@@ -53,7 +57,7 @@ function Card(props) {
         return ele;
       }
     });
-
+    setErrorText("")
     setCardArray(filterArr);
     localStorage.setItem('data',JSON.stringify(filterArr));
     setName("")
@@ -99,9 +103,9 @@ function Card(props) {
           <div
             {...provided.droppableProps}
             ref={provided.innerRef}
-            className={style.card}
+            className={`${style.card} ${darkModeOn? style.dark : null}`}
             style={{
-              background: snapshot.isDraggingOver ? "lightblue" : "lightgrey",
+              background: snapshot.isDraggingOver ? "lightblue" : "",
             }}
           >
             <div className={style.cardHeading}>
@@ -113,12 +117,13 @@ function Card(props) {
                   onChange={(e) => setChangeName(e.target.value)}
                   value={changeName}
                   type="text"
+                  style={darkModeOn &&  {backgroundColor:"transparent", color:"white"}}
                 />
               )}
 
               <span className={style.iconSpan}>
                 <IconButton onClick={handleClick}>
-                  <MoreHorizIcon />
+                  <MoreHorizIcon sx={darkModeOn? {color:"white"}: null} />
                 </IconButton>
               </span>
             </div>
@@ -136,9 +141,11 @@ function Card(props) {
                 vertical: "top",
                 horizontal: "left",
               }}
+              
             >
               <MenuItem
-                onClick={() => {
+                // sx={darkModeOn && {backgroundColor:"black", color:"white"}}
+                  onClick={() => {
                   const newList = cardArray.filter((ele) => {
                     return ele.id !== mainId;
                   });
@@ -180,7 +187,7 @@ function Card(props) {
             </div>
 
             <div className={style.editableDiv}>
-              <Editable name={name} setName={setName} addList={addList} />
+              <Editable name={name} setName={setName} addList={addList} errorText={errorText}/>
             </div>
           </div>
         );

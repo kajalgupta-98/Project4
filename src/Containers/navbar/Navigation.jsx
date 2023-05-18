@@ -16,6 +16,9 @@ import { CgMenuGridR } from "react-icons/cg";
 import { Button } from "@mui/material";
 import BasicMenu from "../../Components/selector/Selector";
 import Tooltip from "@mui/material/Tooltip";
+import { useRecoilState } from "recoil";
+import { darkMode } from "../../recoil/atoms/Atoms";
+
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -56,7 +59,11 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function Navbar({ changeTheme }) {
+export default function Navbar() {
+  const [darkModeOn, setDarkModeOn] = useRecoilState(darkMode)
+  function changeMode(){
+    setDarkModeOn(!darkModeOn)
+  }
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ padding: 0 }}>
@@ -152,11 +159,11 @@ export default function Navbar({ changeTheme }) {
                 <HelpOutlineIcon />
               </Badge>
             </IconButton>
-            <Tooltip title="Change Theme">
+            <Tooltip title={darkModeOn? "Light mode" : "Dark mode"}>
               <IconButton
                 aria-label="show 17 new notifications"
                 color="inherit"
-                onClick={changeTheme}
+                onClick={changeMode}
               >
                 <Badge badgeContent={0} color="error">
                   <BsCircleHalf size={20} />

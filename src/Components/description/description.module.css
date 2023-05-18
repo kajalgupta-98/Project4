@@ -39,6 +39,12 @@
     outline-color: #0c66E4;
     resize: none;
   }
+  .darkContent textArea{
+    background-color: transparent;
+    color: white;
+    border-color: white;
+  }
+  
   .editorBox {
     width: 100%;
     padding: 0.5rem 0;
@@ -49,7 +55,7 @@
     cursor: pointer;
   }
 .editorBox:hover{
-  background-color: rgb(216, 208, 208);
+  background-color: rgb(161, 161, 161);
 }
   .bottomSection {
     margin-left: 2.8rem;

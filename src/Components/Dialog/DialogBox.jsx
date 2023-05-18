@@ -11,6 +11,8 @@ import Activity from "../activity/Activity";
 import Description from "../description/Description";
 import Title from "../title/Title";
 import { useNavigate } from "react-router-dom";
+import { useRecoilValue } from "recoil";
+import { darkMode } from "../../recoil/atoms/Atoms";
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogContent-root": {
@@ -51,13 +53,24 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export default function DialogBox() {
+  const darkModeOn = useRecoilValue(darkMode)
   const navigate = useNavigate();
   return (
     <div>
       <BootstrapDialog
         aria-labelledby="customized-dialog-title"
         open={true}
-        PaperProps={{
+        PaperProps={darkModeOn? 
+          {
+            sx: {
+              position: "relative",
+              height: "80vh",
+              width: "100vw",
+              backgroundColor:"black",
+              color:"white"
+            },
+          }
+          :{
           sx: {
             position: "relative",
             height: "80vh",
@@ -77,7 +90,7 @@ export default function DialogBox() {
             navigate("/");
           }}
         >
-          <CloseIcon />
+          <CloseIcon sx={darkModeOn && {color:"white"}}/>
         </IconButton>
         <DialogContent>
           <Title />

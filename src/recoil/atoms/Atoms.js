@@ -17,4 +17,10 @@ export const theme = atom({
   key: "theme",
   default: [first, clone, nature, dreamy],
 });
+
+export const darkMode= atom({
+  key:"dark mode",
+  default:false
+})
+
 export default CardItem;

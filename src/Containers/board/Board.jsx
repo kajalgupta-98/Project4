@@ -9,6 +9,8 @@ import { v4 as uuidv4 } from "uuid";
 function Board() {
   const [cardAtom, setCardAtom] = useRecoilState(CardItem);
   const [listTitle, setListTitle] = React.useState("");
+  // const [error, setError]= React.useState(false)
+  const [errorText, setErrorText] = React.useState("")
 
   const onDragEnd = (result) => {
     if (!result.destination) return;
@@ -104,8 +106,13 @@ function Board() {
           },
         ])
       );
+      setErrorText("")
+      setListTitle("");
     }
-    setListTitle("");
+    else{
+      // setError(true)
+      setErrorText("enter the title for list")
+    }
   }
 
   return (
@@ -134,6 +141,8 @@ function Board() {
               handleAddList={handleAddList}
               listTitle={listTitle}
               setListTitle={setListTitle}
+              errorText={errorText}
+              setErrorText={setErrorText}
             />
           </div>
         </div>
