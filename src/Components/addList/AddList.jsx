@@ -12,13 +12,13 @@ const AddList = ({ handleAddList, listTitle, setListTitle , errorText}) => {
     <>
       {showInputBox ? (
         <div className={style.addList} 
-             style={darkModeOn&& {backgroundColor:"black", color:"white"}}>
+             style={darkModeOn ? {backgroundColor:"black", color:"white"}: null}>
           <input
             type="text"
             placeholder="Enter List Title..."
             value={listTitle}
             onChange={(e) => setListTitle(e.target.value)}
-            style={darkModeOn&& {backgroundColor:"transparent", color:"white"}}
+            style={darkModeOn ? {backgroundColor:"transparent", color:"white"}: null}
           />
           {errorText && <span style={{color:"red"}}>{errorText}</span>}
 
