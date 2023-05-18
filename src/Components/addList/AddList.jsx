@@ -5,9 +5,14 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useRecoilValue } from "recoil";
 import {darkMode} from "../../recoil/atoms/Atoms"
 
-const AddList = ({ handleAddList, listTitle, setListTitle , errorText}) => {
+const AddList = ({ handleAddList, listTitle, setListTitle , errorText, setErrorText}) => {
   const [showInputBox, setShowInputBox] = React.useState(false);
   const darkModeOn = useRecoilValue(darkMode)
+
+  function handleClose(){
+    setShowInputBox(false)
+    setErrorText("")
+  }
   return (
     <>
       {showInputBox ? (
@@ -24,7 +29,7 @@ const AddList = ({ handleAddList, listTitle, setListTitle , errorText}) => {
 
           <span>
             <button onClick={handleAddList}>Add List</button>
-            <CloseIcon onClick={() => setShowInputBox(false)} />
+            <CloseIcon onClick={handleClose} />
           </span>
         </div>
       ) : (

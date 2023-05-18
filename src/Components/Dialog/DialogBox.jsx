@@ -90,7 +90,7 @@ export default function DialogBox() {
             navigate("/");
           }}
         >
-          <CloseIcon sx={darkModeOn && {color:"white"}}/>
+          <CloseIcon sx={darkModeOn ? {color:"white"}: null}/>
         </IconButton>
         <DialogContent>
           <Title />
