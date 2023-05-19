@@ -1,22 +1,24 @@
 import React from "react";
 import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-
 import Navbar from "../Containers/Navbar/Navigation";
 import Board from "../Containers/board/Board";
 import Sidebar from "../Containers/sidebar/Sidebar";
 import style from "../Home/Home.module.css";
-import { theme } from "../recoil/atoms/Atoms";
-import { useRecoilValue } from "recoil";
+import first from "../utils/first.jpeg";
+import clone from "../utils/clone.jpg";
+import MImage from "../utils/MImage.jpg";
+import gexupdate from "../utils/gxupdate.jpg";
+import Webb from "../utils/Webb.jpg";
 
 const Home = () => {
   const [collapsed, setCollapsed] = React.useState(false);
   const [Theme, setTheme] = React.useState(0);
+  const backgroundImages = [first, clone, MImage, gexupdate, Webb];
   const handleCollapse = () => {
     setCollapsed(!collapsed);
   };
-  const newTheme = useRecoilValue(theme);
   const changeTheme = () => {
-    if (newTheme.length - 1 > Theme) {
+    if (backgroundImages.length - 1 > Theme) {
       setTheme(Theme + 1);
     } else {
       setTheme(0);
@@ -50,7 +52,7 @@ const Home = () => {
           className={` ${style.boardContainer} ${
             collapsed ? style.collapsed : null
           }`}
-          style={{ backgroundImage: `url(${newTheme[Theme]})` }}
+          style={{ backgroundImage: `url(${backgroundImages[Theme]})` }}
         >
           <Board />
         </div>
