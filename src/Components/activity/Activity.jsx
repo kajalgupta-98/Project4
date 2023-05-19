@@ -34,7 +34,7 @@ function Activity() {
 
     const comments = [...taskArr[index].Comment];
     const eleObj = {...taskArr[index]};
-    comments.push(value);
+    comments.push({activity:value, time:new Date(Date.now()).getHours() + ':' + new Date(Date.now()).getMinutes()});
     const newOBj={...eleObj,Comment:comments}
     
     const mapTaskArr = taskArr.map((ele)=>{
@@ -63,6 +63,8 @@ function Activity() {
   const handleShowDetails = ()=>{
     setShowDetails(!showDetails)
   }
+  
+
   return (
     <div className={style.mainContainer}>
       <div className={style.container}>
@@ -105,7 +107,9 @@ function Activity() {
            <h3 className={style.userProfile}>PR</h3>
               <span style={{display:'flex', flexDirection:'row', gap:"1rem"}}>  
                 <span className={style.activityBox}>
-                <p style={{fontSize:"16px"}}>{ele}</p>
+                <p style={{fontSize:"18px"}}>{ele.activity}</p>
+                <span className={style.time}>Time:{ele.time}</span>
+                {/* <span className={style.time}>Time:{new Date(Date.now()).getHours() + ':' + new Date(Date.now()).getMinutes()}</span> */}
           </span>
               </span>
           </div>
