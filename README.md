@@ -19,10 +19,11 @@ Kanban boards are often used in agile software development, but they can be used
 
 
 + ReactJS
-+ React DnD
++ React beautiful DnD
 + Recoil
 + Material UI
 + React Icons
++ React router
 
 
 board = [
@@ -86,11 +87,7 @@ List =[
         title: 'Board title',
         Cards: [
             id: '22r0h9i444t'
-            title: 'Card Title',
-            lables: [{
-                text: 'Urgent',
-                color: 'red'
-            }],
+            title: 'Card Title,
             tasks: [
                 {
                     id: '696969',
