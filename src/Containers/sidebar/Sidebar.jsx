@@ -9,11 +9,15 @@ import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import SideDialog from './SideDialog';
+import BasicPopover from './PopOver';
 
 
-function Sidebar({collapsed, setCollapsed, handleCollapse}) {
+function Sidebar({collapsed, setCollapsed, handleCollapse, changeTheme}) {
   const [boardName, setBoardName]= React.useState("Board Name")
   const [starred, setStarred] =React.useState(false)
+  const [open, setOpen] = React.useState(false)
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
   let board = localStorage.getItem("board name")
   // let star = localStorage.getItem("starred")
@@ -35,6 +39,20 @@ function Sidebar({collapsed, setCollapsed, handleCollapse}) {
   // localStorage.setItem("starred", newValue)
   setStarred(!starred)
  }
+
+ function handleOpen(){
+  setOpen(true)
+ }
+ 
+
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  
+
+  const openPop = Boolean(anchorEl);
   return (
    
   <>
@@ -62,7 +80,7 @@ function Sidebar({collapsed, setCollapsed, handleCollapse}) {
           <PersonOutlineOutlinedIcon sx={{ fontSize: "1.2rem" }} />
           <p>Members</p>
         </div>
-        <AddOutlinedIcon sx={{ fontSize: "1.2rem" }} />
+        <AddOutlinedIcon onClick={handleOpen} sx={{ fontSize: "1.2rem" }} />
       </div>
 
       <div className={style.sideBarOptions}>
@@ -70,27 +88,10 @@ function Sidebar({collapsed, setCollapsed, handleCollapse}) {
           <SettingsOutlinedIcon sx={{ fontSize: "1.2rem" }} />
           <p>Workspace Settings</p>
         </div>
-        <ExpandMoreIcon sx={{ fontSize: "1.2rem" }} />
+        <ExpandMoreIcon onClick={handleClick} sx={{ fontSize: "1.2rem" }} />
       </div>
 
-      {/* <h4 className={style.sideBarOptions}>WorkSpace Views</h4>
-
-      <div className={style.sideBarOptions}>
-        <div className={style.optionInner}>
-          <TableChartOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-          <em> Table</em>
-        </div>
-        <MoreHorizOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-      </div>
-
-      <div className={style.sideBarOptions}>
-        <div className={style.optionInner}>
-          <CalendarMonthOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-          <em> Calendar</em>
-        </div>
-        <MoreHorizOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-      </div> */}
-
+  
       <div className={style.sideBarOptions}>
         <h4>Your Boards</h4>
         <div className={style.optionInner}>
@@ -107,6 +108,8 @@ function Sidebar({collapsed, setCollapsed, handleCollapse}) {
           </p>
         </div>
       </div>
+      <SideDialog open={open} setOpen={setOpen}  />
+      <BasicPopover openPop={openPop} handleClick={handleClick}  setAnchorEl={setAnchorEl} anchorEl={anchorEl} changeTheme={changeTheme}/>
       </>
   )
 }

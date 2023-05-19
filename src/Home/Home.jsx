@@ -42,6 +42,7 @@ const Home = () => {
               collapsed={collapsed}
               setCollapsed={setCollapsed}
               handleCollapse={handleCollapse}
+              changeTheme={changeTheme}
             />
           )}
         </div>
