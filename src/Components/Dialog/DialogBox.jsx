@@ -6,7 +6,6 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
-
 import Activity from "../activity/Activity";
 import Description from "../description/Description";
 import Title from "../title/Title";
@@ -53,30 +52,34 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export default function DialogBox() {
-  const darkModeOn = useRecoilValue(darkMode)
+  const darkModeOn = useRecoilValue(darkMode);
   const navigate = useNavigate();
   return (
     <div>
       <BootstrapDialog
         aria-labelledby="customized-dialog-title"
         open={true}
-        PaperProps={darkModeOn? 
-          {
-            sx: {
-              position: "relative",
-              height: "80vh",
-              width: "100vw",
-              backgroundColor:"black",
-              color:"white"
-            },
-          }
-          :{
-          sx: {
-            position: "relative",
-            height: "80vh",
-            width: "100vw",
-          },
-        }}
+        PaperProps={
+          darkModeOn
+            ? {
+                sx: {
+                  position: "relative",
+                  height: "80vh",
+                  width: "100vw",
+                  backgroundColor: "black",
+                  color: "white",
+                  border: "1px solid white",
+                  borderRadius: "0.5rem",
+                },
+              }
+            : {
+                sx: {
+                  position: "relative",
+                  height: "80vh",
+                  width: "100vw",
+                },
+              }
+        }
       >
         <IconButton
           aria-label="close"
@@ -90,7 +93,7 @@ export default function DialogBox() {
             navigate("/");
           }}
         >
-          <CloseIcon sx={darkModeOn ? {color:"white"}: null}/>
+          <CloseIcon sx={darkModeOn ? { color: "white" } : null} />
         </IconButton>
         <DialogContent>
           <Title />
