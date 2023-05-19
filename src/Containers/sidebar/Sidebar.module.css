@@ -40,8 +40,12 @@
     outline-color: white;
     color:white;
     height: 1.5rem;
+    padding: 0.5rem;
 }
 .optionInner{
     display: flex;
     gap: 1rem;
+}
+.sideBarOptions:hover{
+    background-color: grey;
 }
