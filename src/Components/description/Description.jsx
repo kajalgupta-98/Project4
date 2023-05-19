@@ -4,10 +4,11 @@ import { CgMenuLeftAlt } from "react-icons/cg";
 import { TfiAnnouncement } from "react-icons/tfi";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import "react-quill/dist/quill.snow.css";
-import { useRecoilState } from "recoil";
-import CardItem, { taskDetails } from "../../recoil/atoms/Atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import CardItem, { darkMode, taskDetails } from "../../recoil/atoms/Atoms";
 
 const Description = () => {
+  const darkModeOn = useRecoilValue(darkMode)
   const [cardID, setCardID] = useRecoilState(taskDetails);
   const [showaddDescriptionBox, setShowaddDescriptionBox] = useState(false);
   const [value, setValue] = useState("");
@@ -71,7 +72,7 @@ function handleEditDescription(){
         <button className={style.editBtn} onClick={handleEditDescription}>Edit</button>: null}
       </div>
 
-      <div className={style.content}>
+      <div className={`${style.content} ${darkModeOn ? style.darkContent: null} `}>
         {showaddDescriptionBox ? (
           <div style={{ display: "flex", flexDirection: "column" }}>
             <div>

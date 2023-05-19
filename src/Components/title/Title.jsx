@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import style from "./Title.module.css";
 import VideoLabelIcon from "@mui/icons-material/VideoLabel";
-import { useRecoilState } from "recoil";
-import CardItem, { taskDetails } from "../../recoil/atoms/Atoms";
+import { useRecoilState, useRecoilValue } from "recoil";
+import CardItem, { darkMode, taskDetails } from "../../recoil/atoms/Atoms";
 
 function Title() {
   const [title, setTitle] = useState("");
   const [cardId, setCardId] = useRecoilState(taskDetails);
   const [data, setData] = useRecoilState(CardItem);
+  const darkModeOn= useRecoilValue(darkMode)
 
   function chagneTaskTitle(e) {
     setTitle(e.target.value)
@@ -50,7 +51,7 @@ function Title() {
           value={title}
           onChange={(e)=> chagneTaskTitle(e)}
           onBlur={addTask}
-          className={style.title_box}
+          className={`${style.title_box}  ${darkModeOn? style.dark : null}`}
         />
         <span>in list <u>{data[mainIndex].title}</u></span>
       </div>
