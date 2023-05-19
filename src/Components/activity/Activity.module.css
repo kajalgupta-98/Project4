@@ -1,6 +1,5 @@
 
 .mainContainer{
- 
     margin-top: 20px; 
     padding: 0 1rem;
 }
@@ -58,16 +57,17 @@ background-color: rgb(217, 221, 223);
     display: flex;
 }
 
-.editableDiv {
-  
+.editableDiv { 
   display: flex;
   margin-top: 1rem;
   align-items: center;
   margin-top: 0.5rem;
 }
+
 .userProfileDiv{
     height: auto;
 }
+
 .editedArea{
   
     width: 100%;
@@ -123,14 +123,21 @@ background-color: rgb(217, 221, 223);
 }
 .activityBox{
     border-radius: 6px;
-    width: 30.2rem;
+    width: 30rem;
     padding: 0.5rem 0;
     padding-left: 1rem; 
     box-shadow: rgba(63, 62, 62, 0.2) 1px 2px;
 }
+
 .comment{
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: flex-start;
     margin-top: 1rem;
+    overflow-x: visible;
+}
+
+.time{
+    font-size: 12px;
 }

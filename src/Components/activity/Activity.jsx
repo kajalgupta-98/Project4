@@ -60,6 +60,8 @@ function Activity() {
   const handleShowDetails = ()=>{
     setShowDetails(!showDetails)
   }
+  
+
   return (
     <div className={style.mainContainer}>
       <div className={style.container}>
@@ -78,11 +80,6 @@ function Activity() {
         ) : (
           <div className={style.tetContainDiv}>
             <textarea
-              // style={{
-              //   marginLeft: "2rem",
-              //   paddingLeft: "1rem",
-              //   paddingTop: "0.5rem",
-              // }}
               cols="58"
               rows="4"
               value={value}
@@ -106,7 +103,8 @@ function Activity() {
            <h3 className={style.userProfile}>PR</h3>
               <span style={{display:'flex', flexDirection:'row', gap:"1rem"}}>  
                 <span className={style.activityBox}>
-                <p style={{fontSize:"16px"}}>{ele}</p>
+                <p style={{fontSize:"18px"}}>{ele}</p>
+                <span className={style.time}>Time:{new Date(Date.now()).getHours() + ':' + new Date(Date.now()).getMinutes()}</span>
           </span>
               </span>
           </div>
