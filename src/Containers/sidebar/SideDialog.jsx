@@ -8,7 +8,7 @@ import { darkMode } from "../../recoil/atoms/Atoms";
 export default function SideDialog({open, setOpen}){
     const darkModeOn = useRecoilValue(darkMode)
     const [newMember, setNewMember] = useState("")
-    const [members, setMembers] = useState(['Chand', 'Rohit', 'Ruturaj','Kajal'])
+    const [members, setMembers] = useState([])
     const [showMembers, setShowMembers]= useState(false)
     const [copied, setCopied] = useState(false);
     // const linkRef = useRef(null);

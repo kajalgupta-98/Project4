@@ -11,6 +11,9 @@ import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import SideDialog from './SideDialog';
 import BasicPopover from './PopOver';
+import {AiOutlineClear} from 'react-icons/ai'
+import { useRecoilState } from 'recoil';
+import CardItem from '../../recoil/atoms/Atoms';
 
 
 function Sidebar({collapsed, setCollapsed, handleCollapse, changeTheme}) {
@@ -18,6 +21,7 @@ function Sidebar({collapsed, setCollapsed, handleCollapse, changeTheme}) {
   const [starred, setStarred] =React.useState(false)
   const [open, setOpen] = React.useState(false)
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [data,setData]= useRecoilState(CardItem)
 
   let board = localStorage.getItem("board name")
   // let star = localStorage.getItem("starred")
@@ -27,16 +31,7 @@ function Sidebar({collapsed, setCollapsed, handleCollapse, changeTheme}) {
     localStorage.setItem("board name", e.target.value)
   }
  function handleStar(){
-  // if(starred===false){
-  //   newValue= true
-  //   setStarred(newValue)
 
-  // } else if (starred===true){
-  //   newValue= false
-  //   setStarred(newValue)
-
-  // }
-  // localStorage.setItem("starred", newValue)
   setStarred(!starred)
  }
 
@@ -53,6 +48,11 @@ function Sidebar({collapsed, setCollapsed, handleCollapse, changeTheme}) {
   
 
   const openPop = Boolean(anchorEl);
+
+ const clearData=()=>{
+    setData([]);
+    localStorage.setItem('data',null)
+ }
   return (
    
   <>
@@ -69,9 +69,9 @@ function Sidebar({collapsed, setCollapsed, handleCollapse, changeTheme}) {
       <hr style={{ width: "100%", height: "0.5px" }} />
 
       <div className={style.sideBarOptions}>
-        <div className={style.optionInner}>
-          <TableChartOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-          <p>Boards</p>
+        <div className={style.optionInner} onClick={clearData} >
+          <AiOutlineClear sx={{ fontSize: "1.2rem" }} />
+          <p>Clear List</p>
         </div>
       </div>
 
@@ -92,11 +92,12 @@ function Sidebar({collapsed, setCollapsed, handleCollapse, changeTheme}) {
       </div>
 
   
+
       <div className={style.sideBarOptions}>
         <h4>Your Boards</h4>
         <div className={style.optionInner}>
-          <MoreHorizOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-          <AddOutlinedIcon sx={{ fontSize: "1.2rem" }} />
+          {/* <MoreHorizOutlinedIcon sx={{ fontSize: "1.2rem" }} />
+          <AddOutlinedIcon sx={{ fontSize: "1.2rem" }} /> */}
         </div>
       </div>
 
@@ -107,9 +108,12 @@ function Sidebar({collapsed, setCollapsed, handleCollapse, changeTheme}) {
             {(starred ) ? <AiFillStar /> : <AiOutlineStar/> }
           </p>
         </div>
+
       </div>
       <SideDialog open={open} setOpen={setOpen}  />
       <BasicPopover openPop={openPop} handleClick={handleClick}  setAnchorEl={setAnchorEl} anchorEl={anchorEl} changeTheme={changeTheme}/>
+      
+
       </>
   )
 }

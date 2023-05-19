@@ -1,4 +1,3 @@
-
 import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -7,25 +6,23 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
 import AccountCircle from "@mui/icons-material/AccountCircle";
-import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { BsCircleHalf, BsTrello } from "react-icons/bs";
 import { CgMenuGridR } from "react-icons/cg";
-import { Button } from "@mui/material";
 import Tooltip from "@mui/material/Tooltip";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { useRecoilState } from "recoil";
 import { darkMode } from "../../recoil/atoms/Atoms";
 
-export default function Navbar({ changeTheme }) {
+export default function Navbar() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const [darkModeOn, setDarkModeOn] = useRecoilState(darkMode)
-    function changeMode(){
-      setDarkModeOn(!darkModeOn)
-    }
+  const [darkModeOn, setDarkModeOn] = useRecoilState(darkMode);
+  function changeMode() {
+    setDarkModeOn(!darkModeOn);
+  }
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -62,7 +59,7 @@ export default function Navbar({ changeTheme }) {
             component="div"
             sx={{ display: { xs: "none", sm: "block" }, fontWeight: "bold" }}
           >
-            <BsTrello style={{ marginRight: "0.5rem", marginTop: "0.5rem" }} />
+            <BsTrello style={{ marginRight:"0.5rem", marginTop:"0.5rem" }} />
             Trello
           </Typography>
           <Box
@@ -72,21 +69,7 @@ export default function Navbar({ changeTheme }) {
               display: "flex",
               alignItems: "center",
             }}
-          >
-            <Button
-              onClick={changeTheme}
-              variant="contained"
-              sx={{
-                textTransform: "none",
-                backgroundColor: "#757575",
-                "&:hover": {
-                  backgroundColor: "#757575",
-                },
-              }}
-            >
-              Change background
-            </Button>
-          </Box>
+          ></Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <IconButton
               size="large"
@@ -99,7 +82,7 @@ export default function Navbar({ changeTheme }) {
                 <HelpOutlineIcon />
               </Badge>
             </IconButton>
-            <Tooltip title={darkModeOn? "Light mode" : "Dark mode"}>
+            <Tooltip title={darkModeOn ? "Light mode" : "Dark mode"}>
               <IconButton
                 aria-label="show 17 new notifications"
                 color="inherit"
