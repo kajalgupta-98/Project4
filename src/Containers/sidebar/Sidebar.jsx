@@ -9,11 +9,14 @@ import TableChartOutlinedIcon from '@mui/icons-material/TableChartOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
-
+import {AiOutlineClear} from 'react-icons/ai'
+import { useRecoilState } from 'recoil';
+import CardItem from '../../recoil/atoms/Atoms';
 
 function Sidebar({collapsed, setCollapsed, handleCollapse}) {
   const [boardName, setBoardName]= React.useState("Board Name")
-  const [starred, setStarred] =React.useState(false)
+  const [starred, setStarred] =React.useState(false);
+  const [data,setData]= useRecoilState(CardItem)
 
   let board = localStorage.getItem("board name")
   // let star = localStorage.getItem("starred")
@@ -23,17 +26,13 @@ function Sidebar({collapsed, setCollapsed, handleCollapse}) {
     localStorage.setItem("board name", e.target.value)
   }
  function handleStar(){
-  // if(starred===false){
-  //   newValue= true
-  //   setStarred(newValue)
 
-  // } else if (starred===true){
-  //   newValue= false
-  //   setStarred(newValue)
-
-  // }
-  // localStorage.setItem("starred", newValue)
   setStarred(!starred)
+ }
+
+ const clearData=()=>{
+    setData([]);
+    localStorage.setItem('data',null)
  }
   return (
    
@@ -51,9 +50,9 @@ function Sidebar({collapsed, setCollapsed, handleCollapse}) {
       <hr style={{ width: "100%", height: "0.5px" }} />
 
       <div className={style.sideBarOptions}>
-        <div className={style.optionInner}>
-          <TableChartOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-          <p>Boards</p>
+        <div className={style.optionInner} onClick={clearData} >
+          <AiOutlineClear sx={{ fontSize: "1.2rem" }} />
+          <p>Clear List</p>
         </div>
       </div>
 
@@ -73,23 +72,6 @@ function Sidebar({collapsed, setCollapsed, handleCollapse}) {
         <ExpandMoreIcon sx={{ fontSize: "1.2rem" }} />
       </div>
 
-      {/* <h4 className={style.sideBarOptions}>WorkSpace Views</h4>
-
-      <div className={style.sideBarOptions}>
-        <div className={style.optionInner}>
-          <TableChartOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-          <em> Table</em>
-        </div>
-        <MoreHorizOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-      </div>
-
-      <div className={style.sideBarOptions}>
-        <div className={style.optionInner}>
-          <CalendarMonthOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-          <em> Calendar</em>
-        </div>
-        <MoreHorizOutlinedIcon sx={{ fontSize: "1.2rem" }} />
-      </div> */}
 
       <div className={style.sideBarOptions}>
         <h4>Your Boards</h4>
@@ -106,7 +88,10 @@ function Sidebar({collapsed, setCollapsed, handleCollapse}) {
             {(starred ) ? <AiFillStar /> : <AiOutlineStar/> }
           </p>
         </div>
+
       </div>
+      
+
       </>
   )
 }
