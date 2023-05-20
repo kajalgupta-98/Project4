@@ -36,40 +36,22 @@ export default function BasicPopover({
           horizontal: "left",
         }}
       >
-        <Typography
-          sx={
-            darkModeOn
-              ? { backgroundColor: "black", color: "white", p: 2 }
-              : { p: 2 }
-          }
-        >
-          <Button
-            variant="contained"
-            onClick={changeTheme}
-            sx={
-              darkModeOn
-                ? {
-                    backgroundColor: "#707070",
-                    color: "white",
-                    marginBottom: "1rem",
-                  }
-                : {
-                    backgroundColor: "white",
-                    color: "black",
-                    marginBottom: "1rem",
-                  }
-            }
-          >
-            Change Theme
-          </Button>
-
-          <br />
-          <strong>Dark Mode</strong>
-          <Switch
-            checked={checked}
-            onChange={handleChange}
-            inputProps={{ "aria-label": "controlled" }}
-          />
+        <Typography  sx={darkModeOn? {backgroundColor:"black", color:"white", p:2}: {p:2}}>
+            <Button  variant ="contained" onClick={changeTheme}
+                  sx={darkModeOn? 
+                      {backgroundColor:"#707070", color:"white", marginBottom:"1rem"}: 
+                      {backgroundColor:"white", color:"black",marginBottom:"1rem"}}>
+                        Change Theme
+            </Button>
+      
+            <br/>
+            <strong>Dark Mode</strong>
+            <Switch
+                checked={darkModeOn? true : false}
+                onChange={handleChange}
+                inputProps={{ 'aria-label': 'controlled' }}
+            />
+      
         </Typography>
       </Popover>
     </div>
