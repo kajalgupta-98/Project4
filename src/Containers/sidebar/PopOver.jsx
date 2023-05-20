@@ -42,7 +42,7 @@ export default function BasicPopover({openPop, changeTheme,setAnchorEl, anchorEl
             <br/>
             <strong>Dark Mode</strong>
             <Switch
-                checked={checked}
+                checked={darkModeOn? true : false}
                 onChange={handleChange}
                 inputProps={{ 'aria-label': 'controlled' }}
             />
