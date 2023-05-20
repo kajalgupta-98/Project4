@@ -83,7 +83,7 @@ function Board() {
     }
   };
 
-  function handleAddList(e) {
+  function handleAddList() {
     if (listTitle.length !== 0) {
       setCardAtom([
         ...cardAtom,
