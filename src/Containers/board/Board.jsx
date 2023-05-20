@@ -19,7 +19,7 @@ function Board() {
     if (result.type == "COLUMN") {
         const newArr = [...cardAtom];
        const [removed]= newArr.splice(source.index,1);
-       console.log(removed)
+       
        newArr.splice(destination.index,0,removed);
        setCardAtom(newArr)
        localStorage.setItem('data',JSON.stringify(newArr))
@@ -33,6 +33,7 @@ function Board() {
           return ele;
         }
       });
+     
 
       const destColumn = cardAtom.filter((ele) => {
         if (ele.id === destination.droppableId) {
@@ -43,7 +44,20 @@ function Board() {
       const sourceItems = [...sourceColumn[0].task];
       const destItems = [...destColumn[0].task];
       const [removed] = sourceItems.splice(source.index, 1);
-      destItems.splice(destination.index, 0, removed);
+      
+      const comments =[...removed.Comment]
+      
+      
+      comments.unshift(
+
+        {activity:`move this card from ${sourceColumn[0].title} to ${destColumn[0].title}`, time:new Date(Date.now()).getHours() + ':' + new Date(Date.now()).getMinutes()}
+      )   
+      
+      
+      
+      destItems.splice(destination.index, 0, {...removed,listName:destColumn[0].title,Comment:comments});
+
+     
 
       const newArr = cardAtom.map((ele) => {
         if (ele.id === destination.droppableId) {
@@ -70,6 +84,7 @@ function Board() {
       const [removed] = copiedItems.splice(source.index, 1);
       // console.log(removed);
       copiedItems.splice(destination.index, 0, removed);
+      // console.log(copiedItems)
 
       const newfilterArr = cardAtom.map((ele) => {
         if (ele.id === destination.droppableId) {
@@ -129,7 +144,7 @@ function Board() {
                     className={style.dragCard}
                   >
                     {cardAtom.map((card, index) => {
-                      console.log(card.id, "card id");
+                     
                       return <Card card={card} index={index} key={card.id} />;
                     })}
                   </div>

@@ -33,7 +33,7 @@ function Activity() {
 
     const comments = [...taskArr[index].Comment];
     const eleObj = { ...taskArr[index] };
-    comments.push({
+    comments.unshift({
       activity: value,
       time:
         new Date(Date.now()).getHours() +
