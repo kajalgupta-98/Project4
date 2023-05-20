@@ -46,7 +46,9 @@ function Card(props) {
           id: uuidv4(),
           title: name,
           date: new Date(),
-          Comment: [],
+          Comment: [
+            {activity:`added ${name} card to ${ele.title} `, time:new Date(Date.now()).getHours() + ':' + new Date(Date.now()).getMinutes()}
+          ],
           description: "",
           listName: ele.title,
         });
