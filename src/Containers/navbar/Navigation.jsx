@@ -59,7 +59,7 @@ export default function Navbar() {
             component="div"
             sx={{ display: { xs: "none", sm: "block" }, fontWeight: "bold" }}
           >
-            <BsTrello style={{ marginRight:"0.5rem", marginTop:"0.5rem" }} />
+            <BsTrello style={{ marginRight: "0.5rem", marginTop: "0.5rem" }} />
             Trello
           </Typography>
           <Box
@@ -71,7 +71,7 @@ export default function Navbar() {
             }}
           ></Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton
+            <IconButton                                                 // this button will redirect to trello website
               size="large"
               aria-label="show 17 new notifications"
               color="inherit"
@@ -86,7 +86,7 @@ export default function Navbar() {
               <IconButton
                 aria-label="show 17 new notifications"
                 color="inherit"
-                onClick={changeMode}
+                onClick={changeMode} // set dark and light theme after clicking this function
               >
                 <Badge badgeContent={0} color="error">
                   <BsCircleHalf size={20} />
@@ -103,7 +103,7 @@ export default function Navbar() {
             >
               <AccountCircle />
             </IconButton>
-            <Menu
+            <Menu /* Display all collaborators names */
               id="basic-menu"
               anchorEl={anchorEl}
               open={open}
