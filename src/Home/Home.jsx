@@ -3,7 +3,6 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 import Navbar from "../Containers/Navbar/Navigation";
 import Board from "../Containers/board/Board";
 import Sidebar from "../Containers/sidebar/Sidebar";
-import { Button } from "@mui/material";
 import style from "../Home/Home.module.css";
 import first from "../utils/first.jpeg";
 import clone from "../utils/clone.jpg";
@@ -27,25 +26,8 @@ const Home = () => {
   };
   return (
     <div className={style.HomeContainer}>
-      <Button
-        onClick={changeTheme}
-        variant="contained"
-        sx={{
-          position: "fixed",
-          top: 8,
-          left: 180,
-          zIndex: 2,
-          textTransform: "none",
-          backgroundColor: "#757575",
-          "&:hover": {
-            backgroundColor: "#757575",
-          },
-        }}
-      >
-        Change background
-      </Button>
       <div className={style.Navbar}>
-        <Navbar changeTheme={changeTheme} />
+        <Navbar />
       </div>
       <div className={style.container}>
         <div
